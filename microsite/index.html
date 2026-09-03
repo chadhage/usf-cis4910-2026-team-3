@@ -1,0 +1,243 @@
+<!doctype html>
+<html lang="en-US" dir="ltr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="color-scheme" content="dark light">
+<title>Agentic Development for Software Engineering — Kickoff</title>
+<style>
+:root{--bg:#061525;--bg-2:#0a2036;--surface:#0e2942;--surface-2:#123552;--text:#f4f9ff;--muted:#b9c9d9;--line:#31516d;--blue:#57a8ff;--teal:#42d7c3;--green:#7be0a8;--amber:#ffd37a;--red:#ff8f9b;--shadow:0 18px 50px rgba(0,0,0,.28);--radius:18px;--max:1180px}
+*{box-sizing:border-box}html{scroll-behavior:smooth;scroll-padding-block-start:88px}body{margin:0;background:radial-gradient(circle at 85% 5%,rgba(66,215,195,.12),transparent 25rem),linear-gradient(145deg,var(--bg),#071b2f 48%,#08243a);color:var(--text);font-family:Inter,"Segoe UI",system-ui,-apple-system,sans-serif;line-height:1.55}a{color:inherit}button,input,textarea,select{font:inherit}.skip-link{position:fixed;inset-block-start:8px;inset-inline-start:8px;z-index:1000;padding:10px 14px;background:#fff;color:#000;border-radius:8px;transform:translateY(-150%)}.skip-link:focus{transform:none}.wrap{inline-size:min(calc(100% - 32px),var(--max));margin-inline:auto}.topbar{position:sticky;inset-block-start:0;z-index:100;background:rgba(6,21,37,.94);backdrop-filter:blur(14px);border-block-end:1px solid rgba(87,168,255,.22)}.topbar-inner{display:flex;align-items:center;justify-content:space-between;gap:16px;min-block-size:60px}.brand{font-size:clamp(.82rem,2.5vw,1rem);font-weight:800;letter-spacing:.02em;white-space:nowrap}.brand span{color:var(--teal)}.menu-button,.drawer-close{display:grid;place-items:center;inline-size:42px;block-size:42px;padding:0;border:1px solid var(--line);border-radius:10px;background:var(--surface-2);color:var(--text);cursor:pointer}.menu-button:hover,.drawer-close:hover{border-color:var(--blue);background:rgba(87,168,255,.18)}.menu-icon{display:grid;gap:4px}.menu-icon span{display:block;inline-size:20px;block-size:2px;border-radius:2px;background:currentColor}.nav-drawer{position:fixed;z-index:300;inset-block:0;inset-inline-start:0;display:flex;flex-direction:column;inline-size:min(88vw,360px);padding:20px;background:linear-gradient(160deg,var(--surface),var(--bg-2));border-inline-end:1px solid var(--line);box-shadow:var(--shadow);overflow-y:auto;overscroll-behavior:contain;visibility:hidden;transform:translateX(-102%);transition:transform .25s ease,visibility 0s linear .25s}.nav-drawer.is-open{visibility:visible;transform:translateX(0);transition-delay:0s}html[dir="rtl"] .nav-drawer{transform:translateX(102%)}html[dir="rtl"] .nav-drawer.is-open{transform:translateX(0)}.drawer-head{display:flex;align-items:center;justify-content:space-between;gap:16px;padding-block-end:18px;margin-block-end:10px;border-block-end:1px solid var(--line)}.drawer-title{font-size:1rem;margin:0}.drawer-close{font-size:1.5rem;line-height:1}.nav-links{display:grid;gap:5px}.nav-links a{display:block;padding:11px 12px;border-inline-start:3px solid transparent;border-radius:10px;color:var(--muted);font-size:.92rem;font-weight:700;text-decoration:none}.nav-links a:hover,.nav-links a[aria-current="true"]{background:rgba(87,168,255,.16);color:var(--text)}.nav-links a[aria-current="true"]{border-inline-start-color:var(--teal)}.nav-backdrop{position:fixed;z-index:250;inset:0;background:rgba(0,8,17,.66);opacity:0;visibility:hidden;pointer-events:none;transition:opacity .25s ease,visibility 0s linear .25s}.nav-backdrop.is-open{opacity:1;visibility:visible;pointer-events:auto;transition-delay:0s}body.drawer-open{overflow:hidden}.progress-shell{block-size:4px;background:#122d45}.progress-bar{block-size:100%;inline-size:0;background:linear-gradient(90deg,var(--blue),var(--teal));transition:inline-size .18s ease}.hero{padding-block:72px 52px;border-block-end:1px solid rgba(87,168,255,.15)}.eyebrow{display:flex;flex-wrap:wrap;gap:10px;align-items:center;color:var(--teal);text-transform:uppercase;font-weight:800;font-size:.78rem;letter-spacing:.12em}.pill,.status{display:inline-flex;align-items:center;gap:7px;padding:6px 10px;border:1px solid currentColor;border-radius:999px;font-size:.74rem;font-weight:800;line-height:1.1}.pill.primary{color:#061525;background:var(--teal);border-color:var(--teal)}h1{max-inline-size:900px;margin:18px 0 18px;font-size:clamp(2.6rem,7vw,5.7rem);line-height:.96;letter-spacing:-.055em}.gradient{background:linear-gradient(100deg,#fff 10%,#8ec7ff 55%,#66e3d1);-webkit-background-clip:text;background-clip:text;color:transparent}.lead{max-inline-size:820px;font-size:clamp(1.05rem,2vw,1.32rem);color:var(--muted)}.hero-grid{display:grid;grid-template-columns:1.4fr .8fr;gap:22px;margin-block-start:34px}.hero-card,.card{background:linear-gradient(160deg,rgba(18,53,82,.9),rgba(9,31,51,.9));border:1px solid rgba(111,176,229,.24);border-radius:var(--radius);box-shadow:var(--shadow)}.hero-card{padding:24px}.meta-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}.meta-item strong{display:block;color:#fff;font-size:1.04rem}.meta-item span{color:var(--muted);font-size:.86rem}.timer-card{display:grid;place-items:center;text-align:center;padding:24px}.timer{font-variant-numeric:tabular-nums;font-size:clamp(2.8rem,6vw,4.4rem);font-weight:850;letter-spacing:-.04em}.button-row{display:flex;flex-wrap:wrap;gap:9px;justify-content:center}.btn{border:1px solid var(--line);border-radius:10px;background:#153a58;color:#fff;padding:9px 13px;font-weight:750;cursor:pointer}.btn:hover{background:#1b4a70}.btn.primary{background:var(--blue);border-color:var(--blue);color:#041422}.btn.danger{color:#ffdbe0;border-color:#a94e5a;background:#49232b}.btn:focus-visible,.menu-button:focus-visible,.drawer-close:focus-visible,a:focus-visible,input:focus-visible,textarea:focus-visible,summary:focus-visible{outline:3px solid var(--amber);outline-offset:3px}main section{padding-block:58px;border-block-end:1px solid rgba(87,168,255,.13)}.section-head{display:grid;grid-template-columns:150px 1fr;gap:24px;margin-block-end:28px}.kicker{color:var(--teal);font-size:.78rem;font-weight:850;letter-spacing:.12em;text-transform:uppercase}.section-head h2{font-size:clamp(1.8rem,4vw,3rem);line-height:1.05;margin:0 0 10px}.section-head p{color:var(--muted);margin:0;max-inline-size:760px}.grid{display:grid;grid-template-columns:repeat(12,1fr);gap:16px}.span-12{grid-column:span 12}.span-8{grid-column:span 8}.span-7{grid-column:span 7}.span-6{grid-column:span 6}.span-5{grid-column:span 5}.span-4{grid-column:span 4}.card{padding:22px}.card h3{margin-block-start:0;margin-block-end:8px;font-size:1.1rem}.card p{color:var(--muted)}.label{display:inline-block;margin-block-end:12px;color:var(--blue);font-size:.72rem;font-weight:850;letter-spacing:.09em;text-transform:uppercase}.confirmed{border-block-start:4px solid var(--green)}.proposed{border-block-start:4px solid var(--amber)}.confirmed .label{color:var(--green)}.proposed .label{color:var(--amber)}.agenda{display:grid;gap:10px}.agenda-item{display:grid;grid-template-columns:92px 1fr 52px;gap:16px;align-items:center;padding:16px;border-radius:14px;background:rgba(9,31,51,.72);border:1px solid var(--line)}.agenda-time{font-weight:850;color:var(--teal);font-variant-numeric:tabular-nums}.agenda-item p{margin:2px 0;color:var(--muted);font-size:.9rem}.agenda-min{text-align:end;color:var(--amber);font-weight:800}.total{display:flex;justify-content:space-between;align-items:center;padding:18px 20px;margin-block-start:12px;border-radius:14px;background:linear-gradient(90deg,rgba(87,168,255,.18),rgba(66,215,195,.18));border:1px solid var(--teal);font-weight:850}.people{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}.person{padding:15px;border-radius:13px;background:rgba(6,21,37,.55);border:1px solid var(--line)}.person strong{display:block}.person span{color:var(--muted);font-size:.86rem}.northstar{font-size:clamp(1.35rem,3vw,2.1rem);line-height:1.25;margin:0}.flow{display:grid;grid-template-columns:repeat(5,1fr);gap:8px;align-items:stretch}.flow-step{min-block-size:115px;padding:14px;border:1px solid var(--line);border-radius:13px;background:rgba(6,21,37,.5);display:flex;flex-direction:column;justify-content:space-between}.flow-step b{color:var(--teal)}.flow-step small{color:var(--muted)}ul.clean{padding-inline-start:1.2rem;margin-block-end:0}ul.clean li{margin-block:8px}.research-list{counter-reset:q;display:grid;gap:10px}.research-q{counter-increment:q;display:grid;grid-template-columns:34px 1fr;gap:12px;padding:14px;background:rgba(6,21,37,.55);border-radius:12px}.research-q::before{content:counter(q);display:grid;place-items:center;inline-size:28px;block-size:28px;border-radius:8px;background:var(--blue);color:#041422;font-weight:900}.deliverable-card{position:relative;overflow:hidden}.deliverable-card::after{content:"";position:absolute;inset-block-start:0;inset-inline-end:0;inline-size:70px;block-size:70px;background:linear-gradient(135deg,transparent 50%,rgba(66,215,195,.13) 50%)}.evidence{margin-block-start:14px;padding-block-start:14px;border-block-start:1px solid var(--line)}.evidence strong{color:var(--teal);font-size:.82rem;text-transform:uppercase;letter-spacing:.06em}.checklist{display:grid;gap:9px}.check{display:flex;align-items:flex-start;gap:11px;padding:11px 12px;border:1px solid var(--line);border-radius:11px;background:rgba(6,21,37,.45);cursor:pointer}.check:hover{border-color:var(--blue)}.check input{margin-block-start:4px;accent-color:var(--teal);inline-size:18px;block-size:18px}.check:has(input:checked){background:rgba(66,215,195,.09);border-color:rgba(66,215,195,.55)}.mini-progress{display:flex;align-items:center;gap:12px;margin-block-end:15px}.mini-track{flex:1;block-size:9px;border-radius:99px;background:#061525;overflow:hidden}.mini-fill{block-size:100%;inline-size:0;background:linear-gradient(90deg,var(--blue),var(--teal));transition:inline-size .2s}.mini-text{font-variant-numeric:tabular-nums;color:var(--muted);font-size:.84rem}.expectations{columns:2;column-gap:28px}.expectations li{break-inside:avoid}.timeline{position:relative;display:grid;gap:12px}.timeline::before{content:"";position:absolute;inset-block:12px;inset-inline-start:17px;inline-size:2px;background:linear-gradient(var(--blue),var(--teal))}.timeline-item{position:relative;padding:14px 14px 14px 48px;border-radius:12px;background:rgba(6,21,37,.5);border:1px solid var(--line)}.timeline-item::before{content:"";position:absolute;inset-inline-start:10px;inset-block-start:18px;inline-size:16px;block-size:16px;border-radius:50%;background:var(--teal);box-shadow:0 0 0 5px rgba(66,215,195,.15)}.timeline-item p{margin:4px 0 0}.toolbar{display:flex;flex-wrap:wrap;gap:8px;margin-block-end:18px}.filter[aria-pressed="true"]{background:var(--teal);color:#041422;border-color:var(--teal)}.decision,.risk{transition:opacity .2s}.decision-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}.decision select,.decision textarea,.notes{inline-size:100%;background:#071b2f;color:#fff;border:1px solid var(--line);border-radius:10px;padding:10px}.decision textarea,.notes{min-block-size:84px;resize:vertical}.decision label{display:block;color:var(--muted);font-size:.84rem;margin-block:10px 5px}.risk-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}.risk{padding:16px;border-radius:13px;background:rgba(6,21,37,.55);border:1px solid var(--line)}.risk h3{font-size:1rem;margin:10px 0 5px}.risk p{font-size:.86rem;margin:0}.status.discuss{color:var(--amber)}.status.unconfirmed{color:var(--muted)}details{border:1px solid var(--line);border-radius:12px;background:rgba(6,21,37,.42)}details+details{margin-block-start:10px}summary{cursor:pointer;padding:14px 16px;font-weight:800}details>div{padding:0 16px 16px;color:var(--muted)}.close-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}.callout{padding:26px;border-radius:18px;background:linear-gradient(135deg,rgba(87,168,255,.22),rgba(66,215,195,.14));border:1px solid var(--teal)}.callout h3{font-size:1.5rem;margin-block-start:0}.muted{color:var(--muted)}.hidden{display:none!important}.footer{padding-block:28px 42px;color:var(--muted);font-size:.86rem}.footer-inner{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}.live{position:fixed;inset-inline-end:16px;inset-block-end:16px;max-inline-size:360px;padding:10px 14px;border-radius:10px;background:#fff;color:#041422;box-shadow:var(--shadow);opacity:0;pointer-events:none;transition:opacity .2s}.live.show{opacity:1}
+@media(max-width:900px){.hero-grid,.close-grid{grid-template-columns:1fr}.meta-grid,.people{grid-template-columns:1fr 1fr}.flow{grid-template-columns:1fr 1fr}.span-8,.span-7,.span-6,.span-5,.span-4{grid-column:span 12}.risk-grid{grid-template-columns:1fr 1fr}.section-head{grid-template-columns:1fr;gap:7px}}
+@media(max-width:600px){.wrap{inline-size:min(calc(100% - 20px),var(--max))}.hero{padding-block-start:48px}h1{font-size:2.55rem}.meta-grid,.people,.flow,.risk-grid,.decision-grid{grid-template-columns:1fr}.agenda-item{grid-template-columns:70px 1fr}.agenda-min{grid-column:2}.expectations{columns:1}.card,.hero-card{padding:17px}main section{padding-block:42px}}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{scroll-behavior:auto!important;transition:none!important;animation:none!important}.nav-drawer,.nav-backdrop{transition:none!important}}
+@media(prefers-color-scheme:light){:root{--bg:#eef6fc;--bg-2:#e5f1fa;--surface:#fff;--surface-2:#e8f3fb;--text:#09213a;--muted:#49647b;--line:#afc7d9;--blue:#076bc1;--teal:#007e72;--green:#087743;--amber:#805600;--red:#a31f35;--shadow:0 15px 42px rgba(25,63,90,.14)}body{background:radial-gradient(circle at 85% 5%,rgba(0,126,114,.1),transparent 25rem),linear-gradient(145deg,var(--bg),#f8fbfd)}.topbar{background:rgba(238,246,252,.95)}.nav-drawer{background:linear-gradient(160deg,#fff,var(--bg-2))}.nav-backdrop{background:rgba(9,33,58,.45)}.btn{background:#dbeefb;color:#09213a}.btn.primary{color:#fff}.timer-card,.hero-card,.card{background:linear-gradient(160deg,#fff,#edf6fc)}.agenda-item,.person,.flow-step,.research-q,.check,.timeline-item,.risk,details{background:rgba(255,255,255,.72)}.decision select,.decision textarea,.notes{background:#fff;color:#09213a}.mini-track{background:#c9dce9}}
+@media print{:root{--bg:#fff;--surface:#fff;--text:#000;--muted:#444;--line:#999;--blue:#145f9f;--teal:#126c63;--green:#176b41;--amber:#755200;--shadow:none}body{background:#fff;color:#000;font-size:10pt}.no-print,.topbar,.nav-drawer,.nav-backdrop,.timer-card,.toolbar,.live{display:none!important}.hero{padding-block:20px}.hero-grid{grid-template-columns:1fr}.hero-card,.card,.agenda-item,.person,.flow-step,.research-q,.check,.timeline-item,.risk,details,.callout{background:#fff!important;box-shadow:none;break-inside:avoid}.grid{display:block}.card{margin-block-end:12px}.section-head{grid-template-columns:100px 1fr;margin-block-end:14px}main section{padding-block:22px}.risk-grid,.people,.flow,.decision-grid{grid-template-columns:1fr 1fr}nav{display:none}@page{margin:.55in}h1{font-size:30pt}.gradient{color:#000;background:none}.decision textarea,.notes{border-color:#777;color:#000;background:#fff}.footer{padding-block:15px}}
+</style>
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to main content</a>
+<header class="topbar no-print">
+  <div class="wrap topbar-inner">
+    <div class="brand">Agentic Development <span>· Team #3</span></div>
+    <button class="menu-button" id="menu-button" type="button" aria-label="Open section navigation" aria-expanded="false" aria-controls="section-nav"><span class="menu-icon" aria-hidden="true"><span></span><span></span><span></span></span></button>
+  </div>
+  <div class="progress-shell" aria-hidden="true"><div class="progress-bar" id="page-progress"></div></div>
+</header>
+<nav class="nav-drawer no-print" id="section-nav" aria-label="Kickoff sections" aria-hidden="true" tabindex="-1">
+  <div class="drawer-head"><h2 class="drawer-title">Kickoff sections</h2><button class="drawer-close" id="drawer-close" type="button" aria-label="Close section navigation">×</button></div>
+  <div class="nav-links">
+    <a href="#start">Start Here</a><a href="#outcomes">Outcomes</a><a href="#north-star">Project North Star</a><a href="#scope">Scope &amp; Research Questions</a><a href="#deliverables">Deliverables</a><a href="#ready">Definition of Ready</a><a href="#done">Definition of Done</a><a href="#agreements">Working Agreements</a><a href="#cadence">Cadence</a><a href="#decisions">Decision Log</a><a href="#blockers">Blockers</a><a href="#close">Close</a>
+  </div>
+</nav>
+<div class="nav-backdrop no-print" id="nav-backdrop" aria-hidden="true"></div>
+<header class="hero" id="start">
+  <div class="wrap">
+    <div class="eyebrow"><span>University of South Florida</span><span>Microsoft Project #2</span><span class="pill primary">30-minute kickoff</span></div>
+    <h1><span class="gradient">Agentic Development</span><br>for Software Engineering</h1>
+    <p class="lead">A focused sponsor conversation to align the team on the project north star, evidence expected, ways of working, decision points, and the first path from requirements to a bounded MVP.</p>
+    <div class="hero-grid">
+      <div class="hero-card">
+        <div class="meta-grid">
+          <div class="meta-item"><span>When</span><strong>Friday, Sept. 4, 2026</strong></div>
+          <div class="meta-item"><span>Time</span><strong>3:30–4:00 PM Eastern</strong></div>
+          <div class="meta-item"><span>Where</span><strong>Microsoft Teams</strong></div>
+        </div>
+        <hr style="border:0;border-block-start:1px solid var(--line);margin-block:20px">
+        <div class="people" id="participant-list" aria-label="Participants"></div>
+      </div>
+      <aside class="hero-card timer-card" aria-label="Meeting timer">
+        <span class="label">Manual meeting timer</span>
+        <div class="timer" id="timer" role="timer" aria-live="off">30:00</div>
+        <p class="muted" id="timer-status">Ready to start</p>
+        <div class="button-row">
+          <button class="btn primary" id="timer-start" type="button">Start</button>
+          <button class="btn" id="timer-pause" type="button">Pause</button>
+          <button class="btn" id="timer-reset" type="button">Reset</button>
+        </div>
+      </aside>
+    </div>
+  </div>
+</header>
+<main id="main">
+<section id="outcomes"><div class="wrap">
+  <div class="section-head"><div class="kicker">01 · Start aligned</div><div><h2>Kickoff outcomes</h2><p>Leave with shared language, explicit choices, visible open questions, and owners for the next checkpoint.</p></div></div>
+  <div class="grid">
+    <article class="card confirmed span-6"><span class="label">Confirmed</span><h3>Purpose of this conversation</h3><ul class="clean"><li>Level set sponsor, students, faculty, and mentor roles.</li><li>Clarify the project objective and expected evidence.</li><li>Identify blockers before they become schedule risks.</li><li>Respect course requirements as the governing authority.</li></ul></article>
+    <article class="card proposed span-6"><span class="label">Proposed for agreement tomorrow</span><h3>What success at minute 30 looks like</h3><ul class="clean"><li>A working north-star statement and scope guardrails.</li><li>Agreement on Ready, Done, cadence, and communication.</li><li>Named owners and dates for immediate decisions.</li><li>Clear next checkpoint with a small, demonstrable outcome.</li></ul></article>
+    <article class="card span-12"><span class="label">Timed agenda</span><div class="agenda" id="agenda-list"></div><div class="total"><span>Kickoff agenda total</span><span id="agenda-total">30 minutes</span></div></article>
+  </div>
+</div></section>
+<section id="north-star"><div class="wrap">
+  <div class="section-head"><div class="kicker">02 · Project north star</div><div><h2>Build the pipeline—and study how it builds</h2><p>The software matters. The decision process, evidence, and evolution of the software matter just as much.</p></div></div>
+  <div class="grid">
+    <article class="card confirmed span-7"><span class="label">Confirmed framing</span><p class="northstar">Lead with an <strong>AI-native software engineering pipeline</strong> that generates, tests, evaluates, and evolves software from requirements or a formal specification.</p></article>
+    <article class="card confirmed span-5"><span class="label">Confirmed principle</span><h3>Evidence over opinion</h3><p>Use repeatable experiments, working artifacts, test results, decision records, cost data, and explicit limitations to support conclusions.</p></article>
+    <article class="card span-12"><span class="label">Core workflow</span><div class="flow"><div class="flow-step"><b>1 · Specify</b><small>Requirements, personas, backlog, acceptance criteria</small></div><div class="flow-step"><b>2 · Generate</b><small>Software artifacts and implementation increments</small></div><div class="flow-step"><b>3 · Test</b><small>Unit, feature, end-to-end, and selected resilience tests</small></div><div class="flow-step"><b>4 · Evaluate</b><small>Requirements fit, security, operability, and cost</small></div><div class="flow-step"><b>5 · Evolve</b><small>Adapt implementation and tests as requirements change</small></div></div></article>
+  </div>
+</div></section>
+<section id="scope"><div class="wrap">
+  <div class="section-head"><div class="kicker">03 · Bound the study</div><div><h2>Scope &amp; research questions</h2><p>Compare enough to learn, but not so much that breadth crowds out working software and credible evidence.</p></div></div>
+  <div class="grid">
+    <article class="card confirmed span-7"><span class="label">Confirmed direction</span><div class="research-list" id="research-list"></div></article>
+    <article class="card proposed span-5"><span class="label">Proposed for agreement tomorrow</span><h3>Experiment shape</h3><ul class="clean"><li>Define the ecosystem universe, then shortlist approximately 3–4 viable candidates.</li><li>Include the Microsoft ecosystem in the shortlist.</li><li>Apply each candidate to one bounded scenario; a simple task-management application is the current example.</li><li>Progress from first iteration through MVP.</li><li>Consider a non-AI baseline only as a proposed perspective-building experiment.</li></ul></article>
+    <article class="card span-12"><span class="label">Scope guardrails</span><div class="people"><div class="person"><strong>Depth over breadth</strong><span>Do not compare every ecosystem.</span></div><div class="person"><strong>Bounded scenario</strong><span>Keep the experiment comparable and finishable.</span></div><div class="person"><strong>Consent first</strong><span>No public publication of student work or identity without opt-in.</span></div><div class="person"><strong>Protect data</strong><span>No secrets or private data in prompts or repositories.</span></div><div class="person"><strong>Support claims</strong><span>No conclusions without traceable evidence.</span></div><div class="person"><strong>Course authority</strong><span>Milestones and grading requirements remain authoritative.</span></div></div></article>
+  </div>
+</div></section>
+<section id="deliverables"><div class="wrap">
+  <div class="section-head"><div class="kicker">04 · Show the work</div><div><h2>Deliverables &amp; acceptance evidence</h2><p>Each output should make its acceptance evidence easy to inspect, reproduce, and discuss.</p></div></div>
+  <div class="grid" id="deliverable-list"></div>
+</div></section>
+<section id="ready"><div class="wrap">
+  <div class="section-head"><div class="kicker">05 · Before work starts</div><div><h2>Definition of Ready</h2><p>A backlog item or experiment is ready when the team can execute it without guessing at the objective, evidence, limits, or ownership.</p></div></div>
+  <article class="card proposed"><span class="label">Proposed for agreement tomorrow</span><div class="mini-progress"><div class="mini-track"><div class="mini-fill" id="dor-fill"></div></div><span class="mini-text" id="dor-text">0 / 10 checked</span></div><div class="checklist" id="dor-list"></div></article>
+</div></section>
+<section id="done"><div class="wrap">
+  <div class="section-head"><div class="kicker">06 · Before work closes</div><div><h2>Definition of Done</h2><p>Done means demonstrably complete—not merely coded, described, or moved to another column.</p></div></div>
+  <article class="card proposed"><span class="label">Proposed for agreement tomorrow</span><div class="mini-progress"><div class="mini-track"><div class="mini-fill" id="dod-fill"></div></div><span class="mini-text" id="dod-text">0 / 10 checked</span></div><div class="checklist" id="dod-list"></div></article>
+</div></section>
+<section id="agreements"><div class="wrap">
+  <div class="section-head"><div class="kicker">07 · Ways of working</div><div><h2>Sponsor expectations</h2><p>Practical norms intended to make feedback faster, demos stronger, and research claims more credible.</p></div></div>
+  <div class="grid">
+    <article class="card proposed span-8"><span class="label">Proposed for agreement tomorrow</span><ul class="clean expectations" id="expectation-list"></ul></article>
+    <article class="card confirmed span-4"><span class="label">Confirmed boundary</span><h3>Academic and faculty requirements prevail</h3><p>AI tools are allowed and desired, but outputs must be validated, usage disclosed, and academic integrity preserved. Student token costs must be considered; no assumption should be made that students personally absorb non-trivial costs.</p></article>
+  </div>
+</div></section>
+<section id="cadence"><div class="wrap">
+  <div class="section-head"><div class="kicker">08 · Establish rhythm</div><div><h2>Suggested cadence</h2><p>A lightweight proposal that prioritizes demonstrations, concise preparation, fast escalation, and continuously captured decisions.</p></div></div>
+  <div class="grid">
+    <article class="card proposed span-7"><span class="label">Proposed for agreement tomorrow</span><div class="timeline" id="cadence-list"></div></article>
+    <article class="card span-5"><span class="label">Meeting hygiene</span><details open><summary>Before the sponsor sync</summary><div>Student-led agenda and concise pre-read shared 24 hours before, including the demo target, requested decisions, risks, and links to evidence.</div></details><details><summary>During the sponsor sync</summary><div>Lead with the working demo or evidence. Use status only to frame a decision, risk, or request for help.</div></details><details><summary>After the sponsor sync</summary><div>Update the decision log, owners, dates, blockers, and next demonstrable outcome while context is fresh.</div></details></article>
+  </div>
+</div></section>
+<section id="decisions" data-filter-group="decision"><div class="wrap">
+  <div class="section-head"><div class="kicker">09 · Make choices visible</div><div><h2>Decision log</h2><p>Proposed decisions for kickoff. Select an option and capture context; choices remain proposals until the team agrees.</p></div></div>
+  <div class="toolbar no-print" aria-label="Content filters"><button type="button" class="btn filter" data-filter="all" aria-pressed="true">Show all</button><button type="button" class="btn filter" data-filter="decision" aria-pressed="false">Decisions</button><button type="button" class="btn filter" data-filter="risk" aria-pressed="false">Blockers</button></div>
+  <div class="decision-grid" id="decision-list"></div>
+</div></section>
+<section id="blockers" data-filter-group="risk"><div class="wrap">
+  <div class="section-head"><div class="kicker">10 · Surface constraints</div><div><h2>Risk &amp; blocker board</h2><p>Starting states are intentionally unresolved. Discuss what is known, name an owner, and avoid fabricating closure.</p></div></div>
+  <div class="toolbar no-print" aria-label="Content filters"><button type="button" class="btn filter" data-filter="all" aria-pressed="true">Show all</button><button type="button" class="btn filter" data-filter="decision" aria-pressed="false">Decisions</button><button type="button" class="btn filter" data-filter="risk" aria-pressed="false">Blockers</button></div>
+  <div class="risk-grid" id="risk-list"></div>
+  <article class="card" style="margin-block-start:16px"><label for="blocker-notes"><strong>Shared blocker notes</strong></label><textarea class="notes persist-note" id="blocker-notes" data-key="blocker-notes" placeholder="Capture owner, impact, next action, and target date. Avoid private data or secrets."></textarea></article>
+</div></section>
+<section id="close"><div class="wrap">
+  <div class="section-head"><div class="kicker">11 · Close with clarity</div><div><h2>Decisions, owners, next steps</h2><p>Use the final two minutes to read back what changed, what remains open, and what the team will demonstrate next.</p></div></div>
+  <div class="close-grid">
+    <article class="callout"><h3>Close-out readback</h3><ol><li>What did we decide?</li><li>Who owns each next action?</li><li>What is the due date or checkpoint?</li><li>What will be demonstrated next?</li><li>Which blocker needs escalation?</li></ol></article>
+    <article class="card"><span class="label">Meeting controls</span><h3>Preserve or clear this meeting state</h3><p>Checklist selections, decisions, and notes are stored in this browser only. Printing can create a meeting handout or PDF through the browser print dialog.</p><div class="button-row no-print" style="justify-content:flex-start"><button type="button" class="btn primary" id="print-page">Print / export</button><button type="button" class="btn danger" id="reset-state">Reset meeting state</button></div><p class="muted" id="save-status" aria-live="polite">Changes save locally as you work.</p></article>
+  </div>
+</div></section>
+</main>
+<footer class="footer"><div class="wrap footer-inner"><strong>Prepared for kickoff discussion — proposals become commitments only after team agreement.</strong><span>Privacy: student identity and public publication are opt-in; avoid unnecessary personal data.</span></div></footer>
+<div class="live" id="live-message" role="status" aria-live="polite"></div>
+<script type="application/json" id="kickoff-data">
+{
+  "meeting":{"title":"Agentic Development for Software Engineering","course":"CIS 4910 Senior Project Team #3","project":"Microsoft Project #2","date":"Friday, September 4, 2026","time":"3:30–4:00 PM Eastern","location":"Microsoft Teams","duration":30},
+  "participants":[
+    {"name":"Chad Hage","role":"Sponsor · Microsoft Senior Cloud Solution Architect"},
+    {"name":"Ross Volenec, Bruno Rocha, Joseph Bressani, Kapil Srikanth","role":"Student project team"},
+    {"name":"Scot Hollingsworth","role":"Faculty / course stakeholder"},
+    {"name":"Ken Christensen","role":"Professor & Associate Dean · background support"},
+    {"name":"Bradley Lawrence","role":"Additional Microsoft mentor"}
+  ],
+  "confirmedFacts":["Students will build a working artifact.","The way decisions are made and the artifact is built is part of the research value.","The Microsoft ecosystem belongs in the shortlist.","Course milestones and grading requirements remain authoritative."],
+  "proposals":["Shortlist approximately 3–4 viable ecosystems.","Use a bounded task-management scenario as the current example.","Consider a non-AI baseline as an optional experiment.","Adopt the suggested cadence after team agreement."],
+  "agenda":[
+    {"range":"0–3","title":"Welcome & roles","detail":"Purpose, participants, sponsor/faculty boundaries","minutes":3},
+    {"range":"3–8","title":"North star & scope","detail":"Pipeline objective, scenario, candidate universe","minutes":5},
+    {"range":"8–14","title":"Expectations & deliverables","detail":"Evidence, outputs, acceptance signals","minutes":6},
+    {"range":"14–20","title":"Ready & Done","detail":"Entry and exit criteria for credible increments","minutes":6},
+    {"range":"20–25","title":"Cadence & ways of working","detail":"Sync, pre-read, demos, communication, escalation","minutes":5},
+    {"range":"25–28","title":"Blockers & risks","detail":"Access, budget, privacy, schedule, alignment","minutes":3},
+    {"range":"28–30","title":"Decisions & next steps","detail":"Owners, dates, next checkpoint and demo","minutes":2}
+  ],
+  "researchQuestions":[
+    "How does each ecosystem harvest personas, backlog, and roadmap from requirements?",
+    "How does each support iterative development and feedback or defect capture?",
+    "How does each enable secure-by-design handling of developer credentials, secrets, and application data?",
+    "How does each support TDD across unit, feature, end-to-end, and chaos testing?",
+    "How does each support SRE practices: CI/CD, telemetry, monitoring, self-healing, and recovery?",
+    "What does each approach cost in cloud resources, tokens per iteration and MVP, subscriptions, and add-ons?"
+  ],
+  "deliverables":[
+    {"title":"Working pipeline / MVP","evidence":"Repository commit or release; reproducible setup; requirements-to-artifact trace; passing automated tests; secure configuration; runtime demonstration; known limitations."},
+    {"title":"Research paper","evidence":"Clear method and research questions; cited evidence; experiment design; findings tied to data; limitations, threats to validity, and defensible conclusions aligned to course requirements."},
+    {"title":"Comparison matrix","evidence":"Truth table with explicit criteria, scoring definitions, source or test evidence, comparable conditions, costs, and a rationale for every material judgment."},
+    {"title":"Microsite","evidence":"Accessible, privacy-aware synthesis of scope, method, progress, evidence, decisions, demos, and findings; publication only with appropriate consent."},
+    {"title":"Demo series","evidence":"Repeatable demonstrations from first iteration through MVP; scenario and inputs stated; expected versus observed results; failures retained as learning evidence; cost recorded."}
+  ],
+  "dor":["Problem and user are stated","Expected outcome is explicit","Acceptance criteria are testable","Inputs and test data are identified","Dependencies are known","Security and privacy considerations are captured","Evaluation method and metrics are defined","Cost budget or limit is stated","Owner is named","Small enough to finish in one iteration"],
+  "dod":["Working artifact is in the repository","Acceptance tests pass","Evidence is captured","Security and privacy review is completed","Telemetry and error handling are present where relevant","Cost is recorded","Documentation and decision log are updated","Artifact is demo-ready","Work is peer reviewed","Limitations and next steps are explicit"],
+  "expectations":["Evidence over opinion","Maintain decision records","Make demos reproducible","Show incremental progress","Build security and privacy in from the beginning","Track cost transparently","Disclose AI and tool usage and validate outputs","Ask early when blocked","Use concise pre-reads","Prefer demos over status-only reporting","Academic integrity and faculty/course requirements prevail"],
+  "cadence":["Weekly 30-minute sponsor sync","Student-led agenda and demo","Pre-read 24 hours before","Async questions in an agreed channel","Red blockers escalated within one business day","Decision log maintained continuously","Monthly milestone review or review at course milestones"],
+  "risks":[
+    {"title":"Access / licensing","status":"Discuss","prompt":"Which ecosystems and features can the team access under current licenses?"},
+    {"title":"Token budget","status":"Unconfirmed","prompt":"What usage limits, sponsorship, or lower-cost experiment controls apply?"},
+    {"title":"Repository / workspace","status":"Discuss","prompt":"Where will code, evidence, decisions, and demos live?"},
+    {"title":"Candidate selection","status":"Discuss","prompt":"What criteria and deadline govern the 3–4 ecosystem shortlist?"},
+    {"title":"Test data","status":"Unconfirmed","prompt":"What synthetic or approved data will make comparisons fair and safe?"},
+    {"title":"Security / privacy","status":"Discuss","prompt":"How will secrets, application data, student identity, and publication consent be handled?"},
+    {"title":"Time / scope","status":"Discuss","prompt":"What is the smallest scenario and MVP that preserves research value?"},
+    {"title":"Faculty milestone alignment","status":"Unconfirmed","prompt":"How do sponsor checkpoints map to course deliverables and grading dates?"}
+  ],
+  "decisions":[
+    {"title":"Communication channel","options":["Decide during kickoff","Microsoft Teams channel","Course-approved alternative"]},
+    {"title":"Weekly meeting slot","options":["Decide during kickoff","Keep Friday 3:30 PM Eastern","Propose another recurring slot"]},
+    {"title":"Repository / location","options":["Decide during kickoff","Microsoft-hosted repository","University-approved repository","Other course-approved location"]},
+    {"title":"Shortlist selection date","options":["Decide during kickoff","Within one week","At first course milestone"]},
+    {"title":"Bounded scenario","options":["Decide during kickoff","Simple task-management application","Alternative bounded business scenario"]},
+    {"title":"Baseline experiment","options":["Decide during kickoff","Include non-AI baseline","Exclude baseline","Defer pending scope review"]},
+    {"title":"Publication / privacy choice","options":["Decide during kickoff","Private course/sponsor access","Public only with individual opt-in","No public student identity"]},
+    {"title":"Roles / ownership","options":["Decide during kickoff","Assign by deliverable","Assign by ecosystem","Hybrid ownership"]},
+    {"title":"Next checkpoint","options":["Decide during kickoff","Candidate criteria + shortlist","Scenario specification + acceptance tests","First pipeline spike / demo"]}
+  ]
+}
+</script>
+<script>
+(()=>{
+'use strict';
+const data=JSON.parse(document.getElementById('kickoff-data').textContent);
+const $=(s,r=document)=>r.querySelector(s), $$=(s,r=document)=>[...r.querySelectorAll(s)];
+const storeKey='usf-cis4910-team3-kickoff-v1';
+let state={checks:{},notes:{},decisions:{}};
+try{state={...state,...JSON.parse(localStorage.getItem(storeKey)||'{}')}}catch(e){state={checks:{},notes:{},decisions:{}}}
+const save=()=>{localStorage.setItem(storeKey,JSON.stringify(state));$('#save-status').textContent='Saved locally at '+new Date().toLocaleTimeString([],{hour:'numeric',minute:'2-digit'});};
+const announce=msg=>{const el=$('#live-message');el.textContent=msg;el.classList.add('show');setTimeout(()=>el.classList.remove('show'),2200)};
+$('#participant-list').innerHTML=data.participants.map(p=>`<div class="person"><strong>${p.name}</strong><span>${p.role}</span></div>`).join('');
+$('#agenda-list').innerHTML=data.agenda.map(a=>`<div class="agenda-item"><div class="agenda-time">${a.range} min</div><div><strong>${a.title}</strong><p>${a.detail}</p></div><div class="agenda-min">${a.minutes} min</div></div>`).join('');
+const total=data.agenda.reduce((n,a)=>n+a.minutes,0);$('#agenda-total').textContent=total+' minutes';
+$('#research-list').innerHTML=data.researchQuestions.map(q=>`<div class="research-q">${q}</div>`).join('');
+$('#deliverable-list').innerHTML=data.deliverables.map((d,i)=>`<article class="card deliverable-card ${i<2?'span-6':'span-4'}"><span class="label">Acceptance card</span><h3>${d.title}</h3><div class="evidence"><strong>Exact acceptance evidence</strong><p>${d.evidence}</p></div></article>`).join('');
+$('#expectation-list').innerHTML=data.expectations.map(x=>`<li>${x}</li>`).join('');
+$('#cadence-list').innerHTML=data.cadence.map((x,i)=>`<div class="timeline-item"><strong>${i+1}. ${x}</strong><p>Confirm owner, channel, or timing during kickoff.</p></div>`).join('');
+function renderChecklist(kind,items){const list=$('#'+kind+'-list');list.innerHTML=items.map((x,i)=>{const key=kind+'-'+i,checked=!!state.checks[key];return `<label class="check"><input type="checkbox" data-check="${key}" ${checked?'checked':''}><span>${x}</span></label>`}).join('');updateCheckProgress(kind,items.length)}
+function updateCheckProgress(kind,totalItems){const done=$$(`[data-check^="${kind}-"]:checked`).length;$('#'+kind+'-fill').style.inlineSize=(done/totalItems*100)+'%';$('#'+kind+'-text').textContent=`${done} / ${totalItems} checked`}
+renderChecklist('dor',data.dor);renderChecklist('dod',data.dod);
+$('#decision-list').innerHTML=data.decisions.map((d,i)=>{const saved=state.decisions[i]||{};return `<article class="card decision"><span class="label">Proposed decision ${i+1}</span><h3>${d.title}</h3><label for="decision-${i}">Selected option</label><select id="decision-${i}" data-decision-select="${i}" aria-label="${d.title} selected option">${d.options.map(o=>`<option ${saved.option===o?'selected':''}>${o}</option>`).join('')}</select><label for="decision-note-${i}">Editable notes / rationale</label><textarea id="decision-note-${i}" data-decision-note="${i}" placeholder="Capture rationale, owner, and date.">${saved.note||''}</textarea></article>`}).join('');
+$('#risk-list').innerHTML=data.risks.map(r=>`<article class="risk"><span class="status ${r.status.toLowerCase()}">${r.status}</span><h3>${r.title}</h3><p>${r.prompt}</p></article>`).join('');
+$$('.persist-note').forEach(el=>{el.value=state.notes[el.dataset.key]||''});
+document.addEventListener('change',e=>{if(e.target.matches('[data-check]')){state.checks[e.target.dataset.check]=e.target.checked;save();updateCheckProgress(e.target.dataset.check.split('-')[0],10)}if(e.target.matches('[data-decision-select]')){const i=e.target.dataset.decisionSelect;state.decisions[i]={...(state.decisions[i]||{}),option:e.target.value};save()}});
+document.addEventListener('input',e=>{if(e.target.matches('[data-decision-note]')){const i=e.target.dataset.decisionNote;state.decisions[i]={...(state.decisions[i]||{}),note:e.target.value};save()}if(e.target.matches('.persist-note')){state.notes[e.target.dataset.key]=e.target.value;save()}});
+$$('.filter').forEach(btn=>btn.addEventListener('click',()=>{const f=btn.dataset.filter;$$('.filter').forEach(b=>b.setAttribute('aria-pressed',String(b.dataset.filter===f)));$$('[data-filter-group]').forEach(s=>s.classList.toggle('hidden',f!=='all'&&s.dataset.filterGroup!==f));if(f!=='all'){document.getElementById(f==='decision'?'decisions':'blockers').scrollIntoView({behavior:'smooth'})}announce(f==='all'?'Showing decisions and blockers':`Showing ${f==='decision'?'decisions':'blockers'} only`)}));
+$('#print-page').addEventListener('click',()=>window.print());
+$('#reset-state').addEventListener('click',()=>{if(window.confirm('Reset all saved checklists, decisions, and notes for this kickoff?')){localStorage.removeItem(storeKey);state={checks:{},notes:{},decisions:{}};location.reload()}});
+let seconds=1800,timerId=null;const timer=$('#timer'),timerStatus=$('#timer-status');
+function paintTimer(){const m=Math.floor(seconds/60),s=seconds%60;timer.textContent=`${String(m).padStart(2,'0')}:${String(s).padStart(2,'0')}`}
+$('#timer-start').addEventListener('click',()=>{if(timerId||seconds===0)return;timerStatus.textContent='Timer running';timerId=setInterval(()=>{seconds--;paintTimer();if(seconds<=0){clearInterval(timerId);timerId=null;timerStatus.textContent='Kickoff time complete';announce('30-minute kickoff time complete')}},1000)});
+$('#timer-pause').addEventListener('click',()=>{if(timerId){clearInterval(timerId);timerId=null;timerStatus.textContent='Paused';announce('Timer paused')}});
+$('#timer-reset').addEventListener('click',()=>{clearInterval(timerId);timerId=null;seconds=1800;paintTimer();timerStatus.textContent='Ready to start';announce('Timer reset to 30 minutes')});
+const progress=$('#page-progress');function updatePageProgress(){const max=document.documentElement.scrollHeight-innerHeight;progress.style.inlineSize=(max>0?scrollY/max*100:0)+'%'}addEventListener('scroll',updatePageProgress,{passive:true});addEventListener('resize',updatePageProgress);updatePageProgress();
+const menuButton=$('#menu-button'),drawer=$('#section-nav'),drawerClose=$('#drawer-close'),backdrop=$('#nav-backdrop');
+const drawerFocusable=()=>$$('a[href],button:not([disabled]),[tabindex]:not([tabindex="-1"])',drawer);
+function openDrawer(){drawer.classList.add('is-open');backdrop.classList.add('is-open');document.body.classList.add('drawer-open');drawer.setAttribute('aria-hidden','false');menuButton.setAttribute('aria-expanded','true');menuButton.setAttribute('aria-label','Close section navigation');requestAnimationFrame(()=>drawerFocusable()[0]?.focus())}
+function closeDrawer(){drawer.classList.remove('is-open');backdrop.classList.remove('is-open');document.body.classList.remove('drawer-open');drawer.setAttribute('aria-hidden','true');menuButton.setAttribute('aria-expanded','false');menuButton.setAttribute('aria-label','Open section navigation');menuButton.focus()}
+menuButton.addEventListener('click',()=>menuButton.getAttribute('aria-expanded')==='true'?closeDrawer():openDrawer());
+drawerClose.addEventListener('click',closeDrawer);backdrop.addEventListener('click',closeDrawer);
+drawer.addEventListener('click',e=>{if(e.target.closest('a[href^="#"]'))closeDrawer()});
+document.addEventListener('keydown',e=>{if(menuButton.getAttribute('aria-expanded')!=='true')return;if(e.key==='Escape'){e.preventDefault();closeDrawer();return}if(e.key==='Tab'){const items=drawerFocusable();if(!items.length)return;const first=items[0],last=items[items.length-1];if(e.shiftKey&&document.activeElement===first){e.preventDefault();last.focus()}else if(!e.shiftKey&&document.activeElement===last){e.preventDefault();first.focus()}else if(!drawer.contains(document.activeElement)){e.preventDefault();first.focus()}}});
+const navLinks=$$('#section-nav a'),sections=navLinks.map(a=>document.querySelector(a.getAttribute('href'))).filter(Boolean);const observer=new IntersectionObserver(entries=>{entries.filter(e=>e.isIntersecting).sort((a,b)=>b.intersectionRatio-a.intersectionRatio).slice(0,1).forEach(e=>navLinks.forEach(a=>a.setAttribute('aria-current',String(a.getAttribute('href')==='#'+e.target.id))))},{rootMargin:'-20% 0px -65% 0px',threshold:[0,.2,.5]});sections.forEach(s=>observer.observe(s));
+})();
+</script>
+</body>
+</html>
