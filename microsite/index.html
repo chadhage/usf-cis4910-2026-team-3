@@ -33,9 +33,10 @@ main section{padding-block:88px;border-block-end:1px solid #dce3df}main section:
 .btn{background:#eef3ef;color:#174b39;border-color:#b9c9c0}.btn.primary{background:#006747;color:#fff;border-color:#006747}.btn.danger{background:#fff;color:#8d2430}.footer{background:#004b36;color:#fff;border-block-start:4px solid #cfc493}.footer span{color:#dbe8e1}
 #updates pre{background:#17372d;color:#f7f8f4;border-color:#315c4e}.updates-header{margin-block-end:44px}.updates-header h1{color:#004b36}.updates-actions{gap:12px}
 .decision-carousel{max-inline-size:760px}.decision-carousel .decision-grid{grid-template-columns:minmax(0,1fr)}.decision-carousel .decision{min-block-size:390px}.carousel-controls{display:grid;grid-template-columns:110px minmax(120px,1fr) 110px;align-items:center;gap:16px;margin-block-start:20px}.carousel-position{text-align:center;color:var(--muted);font-weight:700;font-variant-numeric:tabular-nums}.carousel-controls .btn{inline-size:100%}.carousel-controls .btn:disabled{cursor:not-allowed;opacity:.45}
+.decision-options{display:flex;flex-wrap:wrap;gap:10px;margin-block:8px 20px;padding:0;border:0}.decision-options legend{inline-size:100%;margin-block-end:2px;font-weight:700}.decision-option{position:relative;display:inline-flex}.decision-option input{position:absolute;inline-size:1px;block-size:1px;opacity:0}.decision-option span{display:flex;align-items:center;min-block-size:44px;padding:9px 14px;border:2px solid #b9c9c0;border-radius:6px;background:#f7f8f4;color:#174b39;font-weight:700;cursor:pointer}.decision-option span:hover{border-color:#006747;background:#eef3ef}.decision-option input:checked+span{border-color:#006747;background:#006747;color:#fff}.decision-option input:focus-visible+span{outline:3px solid #cfc493;outline-offset:3px}
 @media(max-width:900px){.section-head{grid-template-columns:1fr;gap:8px}main section{padding-block:68px}}
-@media(max-width:600px){.hero{padding-block:52px}.hero h1{font-size:2.35rem}.card,.hero-card{padding:22px}main section{padding-block:58px}.section-head{margin-block-end:30px}.decision-carousel .decision{min-block-size:430px}.carousel-controls{grid-template-columns:92px minmax(90px,1fr) 92px;gap:8px}}
-@media print{.decision-carousel{max-inline-size:none}.decision-carousel .decision[hidden]{display:grid!important}.carousel-controls{display:none!important}}
+@media(max-width:600px){.hero{padding-block:52px}.hero h1{font-size:2.35rem}.card,.hero-card{padding:22px}main section{padding-block:58px}.section-head{margin-block-end:30px}.decision-carousel .decision{min-block-size:430px}.decision-option{inline-size:100%}.decision-option span{inline-size:100%}.carousel-controls{grid-template-columns:92px minmax(90px,1fr) 92px;gap:8px}}
+@media print{.decision-carousel{max-inline-size:none}.decision-carousel .decision[hidden]{display:grid!important}.decision-option input:not(:checked)+span{display:none}.decision-option input:checked+span{border-color:#555!important;background:#fff!important;color:#000!important}.carousel-controls{display:none!important}}
 </style>
 </head>
 <body>
@@ -231,12 +232,12 @@ git push -u origin iteration/01</code></pre></div></details>
     {"title":"Time / scope","status":"Discuss","prompt":"What is the smallest scenario and MVP that preserves research value?"}
   ],
   "decisions":[
-    {"title":"Communication channel","options":["Decide during kickoff","Microsoft Teams channel","Course-approved alternative"]},
-    {"title":"Weekly meeting slot","options":["Decide during kickoff","Keep Friday 3:30 PM Eastern","Propose another recurring slot"]},
-    {"title":"Repository / location","options":["Decide during kickoff","Microsoft-hosted repository","University-approved repository","Other course-approved location"]},
-    {"title":"Shortlist selection date","options":["Decide during kickoff","Within one week","At first course milestone"]},
-    {"title":"Bounded scenario","options":["Decide during kickoff","Simple task-management application","Alternative bounded business scenario"]},
-    {"title":"Next checkpoint","options":["Decide during kickoff","Candidate criteria + shortlist","Scenario specification + acceptance tests","First pipeline spike / demo"]}
+    {"title":"Communication channel","options":["Microsoft Teams channel","Course-approved alternative","TBD"]},
+    {"title":"Weekly meeting slot","options":["Keep Friday 3:30 PM Eastern","Propose another recurring slot","TBD"]},
+    {"title":"Repository / location","options":["Microsoft-hosted repository","University-approved repository","Other course-approved location","TBD"]},
+    {"title":"Shortlist selection date","options":["Within one week","At first course milestone","TBD"]},
+    {"title":"Bounded scenario","options":["Simple task-management application","Alternative bounded business scenario","TBD"]},
+    {"title":"Next checkpoint","options":["Candidate criteria + shortlist","Scenario specification + acceptance tests","First pipeline spike / demo","TBD"]}
   ]
 }
 </script>
@@ -260,7 +261,7 @@ function renderChecklist(kind,items){const list=$('#'+kind+'-list');list.innerHT
 function updateCheckProgress(kind,totalItems){const done=$$(`[data-check^="${kind}-"]:checked`).length;$('#'+kind+'-fill').style.inlineSize=(done/totalItems*100)+'%';$('#'+kind+'-text').textContent=`${done} / ${totalItems} checked`}
 renderChecklist('dor',data.dor);renderChecklist('dod',data.dod);
 let currentDecision=0;
-$('#decision-list').innerHTML=data.decisions.map((d,i)=>{const saved=state.decisions[i]||{};return `<article class="card decision" role="group" aria-roledescription="slide" aria-label="Decision ${i+1} of ${data.decisions.length}" ${i===0?'':'hidden'}><span class="label">Proposed decision ${i+1}</span><h3>${d.title}</h3><label for="decision-${i}">Selected option</label><select id="decision-${i}" data-decision-select="${i}" aria-label="${d.title} selected option">${d.options.map(o=>`<option ${saved.option===o?'selected':''}>${o}</option>`).join('')}</select><label for="decision-note-${i}">Editable notes / rationale</label><textarea id="decision-note-${i}" data-decision-note="${i}" placeholder="Capture rationale, owner, and date."></textarea></article>`}).join('');
+$('#decision-list').innerHTML=data.decisions.map((d,i)=>{const saved=state.decisions[i]||{},selected=d.options.includes(saved.option)?saved.option:'';if(saved.option&&!selected){delete saved.option;localStorage.setItem(storeKey,JSON.stringify(state))}return `<article class="card decision" role="group" aria-roledescription="slide" aria-label="Decision ${i+1} of ${data.decisions.length}" ${i===0?'':'hidden'}><span class="label">Proposed decision ${i+1}</span><h3>${d.title}</h3><fieldset class="decision-options"><legend>Select one option</legend>${d.options.map(o=>`<label class="decision-option"><input type="radio" name="decision-${i}" value="${o}" data-decision-option="${i}" ${selected===o?'checked':''}><span>${o}</span></label>`).join('')}</fieldset><label for="decision-note-${i}">Editable notes / rationale</label><textarea id="decision-note-${i}" data-decision-note="${i}" placeholder="Capture rationale, owner, and date."></textarea></article>`}).join('');
 $$('[data-decision-note]').forEach(note=>{note.value=state.decisions[note.dataset.decisionNote]?.note||''});
 function showDecision(index){currentDecision=Math.max(0,Math.min(index,data.decisions.length-1));$$('#decision-list .decision').forEach((decision,i)=>decision.hidden=i!==currentDecision);$('#decision-position').textContent=`Decision ${currentDecision+1} of ${data.decisions.length}`;$('#decision-prev').disabled=currentDecision===0;$('#decision-next').disabled=currentDecision===data.decisions.length-1}
 $('#decision-prev').addEventListener('click',()=>showDecision(currentDecision-1));
@@ -270,7 +271,7 @@ $('#risk-list').innerHTML=data.risks.map(r=>`<article class="risk"><span class="
 $$('.persist-note').forEach(el=>{el.value=state.notes[el.dataset.key]||''});
 function applyView(){const updatesMode=location.hash==='#updates';document.body.classList.toggle('updates-mode',updatesMode);if(updatesMode)scrollTo(0,0)}
 addEventListener('hashchange',applyView);applyView();
-document.addEventListener('change',e=>{if(e.target.matches('[data-check]')){const kind=e.target.dataset.check.split('-')[0];state.checks[e.target.dataset.check]=e.target.checked;save();updateCheckProgress(kind,data[kind].length)}if(e.target.matches('[data-decision-select]')){const i=e.target.dataset.decisionSelect;state.decisions[i]={...(state.decisions[i]||{}),option:e.target.value};save()}});
+document.addEventListener('change',e=>{if(e.target.matches('[data-check]')){const kind=e.target.dataset.check.split('-')[0];state.checks[e.target.dataset.check]=e.target.checked;save();updateCheckProgress(kind,data[kind].length)}if(e.target.matches('[data-decision-option]')){const i=e.target.dataset.decisionOption;state.decisions[i]={...(state.decisions[i]||{}),option:e.target.value};save()}});
 document.addEventListener('input',e=>{if(e.target.matches('[data-decision-note]')){const i=e.target.dataset.decisionNote;state.decisions[i]={...(state.decisions[i]||{}),note:e.target.value};save()}if(e.target.matches('.persist-note')){state.notes[e.target.dataset.key]=e.target.value;save()}});
 $('#print-page').addEventListener('click',()=>window.print());
 $('#reset-state').addEventListener('click',()=>{if(window.confirm('Reset all saved checklists, decisions, and notes for this kickoff?')){localStorage.removeItem(storeKey);state={checks:{},notes:{},decisions:{}};location.reload()}});
