@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<meta name="color-scheme" content="dark light">
+<meta name="color-scheme" content="light">
 <title>Agentic Development for Software Engineering — Kickoff</title>
 <style>
 :root{--bg:#061525;--bg-2:#0a2036;--surface:#0e2942;--surface-2:#123552;--text:#f4f9ff;--muted:#b9c9d9;--line:#31516d;--blue:#57a8ff;--teal:#42d7c3;--green:#7be0a8;--amber:#ffd37a;--red:#ff8f9b;--shadow:0 18px 50px rgba(0,0,0,.28);--radius:18px;--max:1180px}
@@ -16,6 +16,24 @@
 </style>
 <style>
 .updates-mode .hero,.updates-mode main>section:not(#updates),.updates-mode .footer{display:none}.updates-mode #updates{padding-block-start:54px;min-block-size:calc(100vh - 60px)}.updates-header{display:flex;align-items:flex-start;justify-content:space-between;gap:24px;margin-block-end:28px}.updates-header h1{font-size:clamp(2.2rem,6vw,4.4rem);margin-block:4px 10px}.updates-header p{max-inline-size:720px;margin:0;color:var(--muted)}.updates-actions{display:flex;gap:10px;flex-wrap:wrap;justify-content:flex-end}.updates-gallery{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}.update-card{border:1px solid var(--line);border-radius:12px;background:rgba(18,53,82,.62);overflow:hidden}.update-card[open]{grid-column:1/-1;border-color:var(--blue)}.update-card summary{display:grid;gap:7px;padding:18px;cursor:pointer;list-style:none}.update-card summary::-webkit-details-marker{display:none}.update-card summary:hover{background:rgba(87,168,255,.08)}.update-card-title{display:flex;align-items:flex-start;justify-content:space-between;gap:12px}.update-card-title strong{font-size:1.08rem}.update-card-meta{display:flex;flex-wrap:wrap;gap:7px 14px;color:var(--muted);font-size:.88rem}.update-card-body{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px;padding:0 18px 18px;border-block-start:1px solid var(--line)}.update-detail{padding-block-start:16px;white-space:pre-wrap;overflow-wrap:anywhere}.update-detail strong{display:block;color:var(--teal);margin-block-end:5px}.update-detail.full{grid-column:1/-1}.update-link{justify-self:start}.updates-empty,.updates-error{grid-column:1/-1;padding:32px;text-align:center;border:1px dashed var(--line);border-radius:12px;color:var(--muted)}.updates-error{color:var(--red)}.new-update-panel{margin-block-start:20px}.new-update-panel[hidden]{display:none}.update-form{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px}.form-field{display:grid;gap:7px}.form-field.full{grid-column:1/-1}.form-field label,.escalation legend,.item-editor-title{font-weight:800}.form-field input,.item-row input{inline-size:100%;border:1px solid var(--line);border-radius:10px;background:var(--bg-2);color:var(--text);padding:11px 12px}.form-field input:focus,.item-row input:focus{outline:3px solid rgba(87,168,255,.25);border-color:var(--blue)}.item-editor{display:grid;gap:10px}.item-editor-head{display:flex;align-items:center;justify-content:space-between;gap:12px}.item-list{display:grid;gap:8px}.item-row{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:8px;align-items:center}.item-remove{inline-size:42px;block-size:42px;padding:0;font-size:1.35rem}.field-hint{color:var(--muted);font-size:.88rem}.escalation{margin:0;padding:14px;border:1px solid var(--line);border-radius:10px}.radio-row{display:flex;flex-wrap:wrap;gap:18px;margin-block-start:8px}.radio-row label{display:flex;align-items:center;gap:7px}.submit-row{display:flex;align-items:center;justify-content:space-between;gap:16px;grid-column:1/-1;padding-block-start:4px}.submit-row p{margin:0}.iteration-note{border-inline-start:4px solid var(--blue);padding-inline-start:14px}@media(max-width:900px){.updates-gallery{grid-template-columns:repeat(2,minmax(0,1fr))}.update-card-body{grid-template-columns:1fr 1fr}}@media(max-width:600px){.updates-header{display:grid}.updates-actions{justify-content:flex-start}.updates-gallery,.update-card-body,.update-form{grid-template-columns:1fr}.form-field.full,.submit-row,.update-detail.full{grid-column:1}.submit-row{align-items:flex-start;flex-direction:column}}@media(prefers-color-scheme:light){.update-card{background:rgba(255,255,255,.72)}.form-field input,.item-row input{background:#fff;color:#09213a}}@media print{#updates{display:none}}
+</style>
+<style>
+#updates .grid>*{min-inline-size:0}#updates pre{max-inline-size:100%;margin:16px 0 0;padding:16px;border:1px solid var(--line);border-radius:8px;background:rgba(6,21,37,.62);overflow-x:auto;white-space:pre}#updates pre code{overflow-wrap:normal}
+@media(prefers-color-scheme:light){#updates pre{background:#f4f9fc}}
+</style>
+<style>
+:root{color-scheme:light;--bg:#f4f3ed;--bg-2:#ebe9df;--surface:#fff;--surface-2:#eef3ef;--text:#17372d;--muted:#52685f;--line:#cbd5cf;--blue:#006747;--teal:#006747;--green:#00843d;--amber:#8a6d1d;--red:#a72b35;--shadow:0 8px 24px rgba(20,55,44,.08);--radius:8px;--max:1120px}
+body{background:#f4f3ed;color:var(--text);font-family:"Segoe UI",Aptos,Calibri,-apple-system,BlinkMacSystemFont,sans-serif;line-height:1.65}
+.topbar{background:rgba(0,71,51,.97);border-block-end:3px solid #cfc493}.brand,.menu-button{color:#fff}.brand span{color:#cfc493}.menu-button,.drawer-close{background:#00553e;border-color:rgba(255,255,255,.28)}
+.nav-drawer{background:#fff}.nav-links a:hover,.nav-links a:focus-visible{background:#eef3ef;color:#004b36}
+.hero{padding-block:76px 72px;background:linear-gradient(135deg,#004b36,#006747);border-block-end:6px solid #cfc493}.hero h1{max-inline-size:850px}.gradient{background:none;color:#cfc493;-webkit-text-fill-color:#cfc493}.lead{max-inline-size:690px;color:#edf5f1}.eyebrow{color:#fff}.pill.primary{background:#cfc493;color:#17372d;border-color:#cfc493}
+.hero-card{background:#fff;color:var(--text);border:0;border-radius:8px;box-shadow:0 12px 32px rgba(0,35,25,.18)}.meta-item strong{color:#17372d}.meta-item span{color:var(--muted)}
+main section{padding-block:88px;border-block-end:1px solid #dce3df}main section:nth-of-type(even){background:#fafbf8}.section-head{grid-template-columns:112px minmax(0,680px);gap:36px;margin-block-end:42px}.section-head p{max-inline-size:620px}.kicker{color:#006747}.grid{gap:24px}.card{padding:30px;background:#fff;border:1px solid #d5ded9;border-radius:8px;box-shadow:none}.confirmed,.proposed{border-block-start:4px solid #006747}.label{color:#006747;letter-spacing:.08em}
+.agenda{gap:14px}.agenda-item,.person,.flow-step,.research-q,.check,.timeline-item,.risk,details{background:#f7f8f4;border-color:#d5ded9;border-radius:6px}.agenda-item{padding:20px 22px}.flow{gap:12px}.flow-step{padding:20px}.clean li+li{margin-block-start:10px}.checklist{gap:10px}.decision-grid,.risk-grid{gap:20px}
+.btn{background:#eef3ef;color:#174b39;border-color:#b9c9c0}.btn.primary{background:#006747;color:#fff;border-color:#006747}.btn.danger{background:#fff;color:#8d2430}.footer{background:#004b36;color:#fff;border-block-start:4px solid #cfc493}.footer span{color:#dbe8e1}
+#updates pre{background:#17372d;color:#f7f8f4;border-color:#315c4e}.updates-header{margin-block-end:44px}.updates-header h1{color:#004b36}.updates-actions{gap:12px}
+@media(max-width:900px){.section-head{grid-template-columns:1fr;gap:8px}main section{padding-block:68px}}
+@media(max-width:600px){.hero{padding-block:52px}.hero h1{font-size:2.35rem}.card,.hero-card{padding:22px}main section{padding-block:58px}.section-head{margin-block-end:30px}}
 </style>
 </head>
 <body>
@@ -36,11 +54,11 @@
 <div class="nav-backdrop no-print" id="nav-backdrop" aria-hidden="true"></div>
 <header class="hero" id="start">
   <div class="wrap">
-    <div class="eyebrow"><span>University of South Florida</span><span>Microsoft Project #2</span><span class="pill primary">30-minute kickoff</span></div>
+    <div class="eyebrow"><span>University of South Florida</span><span>Microsoft Project #2</span><span class="pill primary">Team kickoff</span></div>
     <h1><span class="gradient">Agentic Development</span><br>for Software Engineering</h1>
-    <p class="lead">A focused sponsor conversation to align the team on the project north star, evidence expected, ways of working, decision points, and the first path from requirements to a bounded MVP.</p>
+    <p class="lead">Align on the project, evidence, working agreements, and the path to a focused MVP.</p>
     <div class="hero-grid">
-      <div class="hero-card">
+      <div class="hero-card" style="grid-column:1/-1">
         <div class="meta-grid">
           <div class="meta-item"><span>When</span><strong>Friday, Sept. 4, 2026</strong></div>
           <div class="meta-item"><span>Time</span><strong>3:30–4:00 PM Eastern</strong></div>
@@ -49,107 +67,116 @@
         <hr style="border:0;border-block-start:1px solid var(--line);margin-block:20px">
         <div class="people" id="participant-list" aria-label="Participants"></div>
       </div>
-      <aside class="hero-card timer-card" aria-label="Meeting timer">
-        <span class="label">Manual meeting timer</span>
-        <div class="timer" id="timer" role="timer" aria-live="off">30:00</div>
-        <p class="muted" id="timer-status">Ready to start</p>
-        <div class="button-row">
-          <button class="btn primary" id="timer-start" type="button">Start</button>
-          <button class="btn" id="timer-pause" type="button">Pause</button>
-          <button class="btn" id="timer-reset" type="button">Reset</button>
-        </div>
-      </aside>
     </div>
   </div>
 </header>
 <main id="main">
 <section id="outcomes"><div class="wrap">
-  <div class="section-head"><div class="kicker">01 · Start aligned</div><div><h2>Kickoff outcomes</h2><p>Leave with shared language, explicit choices, visible open questions, and owners for the next checkpoint.</p></div></div>
+  <div class="section-head"><div class="kicker">01 · Align</div><div><h2>Kickoff outcomes</h2><p>Agree on direction, ownership, and the next checkpoint.</p></div></div>
   <div class="grid">
-    <article class="card confirmed span-6"><span class="label">Confirmed</span><h3>Purpose of this conversation</h3><ul class="clean"><li>Level set sponsor, students, faculty, and mentor roles.</li><li>Clarify the project objective and expected evidence.</li><li>Identify blockers before they become schedule risks.</li><li>Respect course requirements as the governing authority.</li></ul></article>
-    <article class="card proposed span-6"><span class="label">Proposed for agreement tomorrow</span><h3>What success at minute 30 looks like</h3><ul class="clean"><li>A working north-star statement and scope guardrails.</li><li>Agreement on Ready, Done, cadence, and communication.</li><li>Named owners and dates for immediate decisions.</li><li>Clear next checkpoint with a small, demonstrable outcome.</li></ul></article>
-    <article class="card span-12"><span class="label">Timed agenda</span><div class="agenda" id="agenda-list"></div><div class="total"><span>Kickoff agenda total</span><span id="agenda-total">30 minutes</span></div></article>
+    <article class="card confirmed span-12"><span class="label">Goals</span><ul class="clean expectations"><li>Confirm the project objective and evidence.</li><li>Set scope and ways of working.</li><li>Name owners for open decisions and blockers.</li><li>Choose the next demonstrable outcome.</li></ul></article>
+    <article class="card span-12"><span class="label">Agenda</span><div class="agenda" id="agenda-list"></div></article>
   </div>
 </div></section>
 <section id="north-star"><div class="wrap">
-  <div class="section-head"><div class="kicker">02 · Project north star</div><div><h2>Build the pipeline—and study how it builds</h2><p>The software matters. The decision process, evidence, and evolution of the software matter just as much.</p></div></div>
+  <div class="section-head"><div class="kicker">02 · Direction</div><div><h2>Build the pipeline. Study the process.</h2><p>Evaluate both the software and how it evolves.</p></div></div>
   <div class="grid">
-    <article class="card confirmed span-7"><span class="label">Confirmed framing</span><p class="northstar">Lead with an <strong>AI-native software engineering pipeline</strong> that generates, tests, evaluates, and evolves software from requirements or a formal specification.</p></article>
-    <article class="card confirmed span-5"><span class="label">Confirmed principle</span><h3>Evidence over opinion</h3><p>Use repeatable experiments, working artifacts, test results, decision records, cost data, and explicit limitations to support conclusions.</p></article>
+    <article class="card confirmed span-7"><span class="label">North star</span><p class="northstar">Build an <strong>AI-native engineering pipeline</strong> that generates, tests, evaluates, and evolves software from requirements.</p></article>
+    <article class="card confirmed span-5"><span class="label">Principle</span><h3>Evidence over opinion</h3><p>Support conclusions with repeatable tests, working artifacts, cost data, and known limitations.</p></article>
     <article class="card span-12"><span class="label">Core workflow</span><div class="flow"><div class="flow-step"><b>1 · Specify</b><small>Requirements, personas, backlog, acceptance criteria</small></div><div class="flow-step"><b>2 · Generate</b><small>Software artifacts and implementation increments</small></div><div class="flow-step"><b>3 · Test</b><small>Unit, feature, end-to-end, and selected resilience tests</small></div><div class="flow-step"><b>4 · Evaluate</b><small>Requirements fit, security, operability, and cost</small></div><div class="flow-step"><b>5 · Evolve</b><small>Adapt implementation and tests as requirements change</small></div></div></article>
   </div>
 </div></section>
 <section id="scope"><div class="wrap">
-  <div class="section-head"><div class="kicker">03 · Bound the study</div><div><h2>Scope &amp; research questions</h2><p>Compare enough to learn, but not so much that breadth crowds out working software and credible evidence.</p></div></div>
+  <div class="section-head"><div class="kicker">03 · Scope</div><div><h2>Research questions</h2><p>Compare a small set of viable ecosystems using one bounded scenario.</p></div></div>
   <div class="grid">
-    <article class="card confirmed span-7"><span class="label">Confirmed direction</span><div class="research-list" id="research-list"></div></article>
-    <article class="card proposed span-5"><span class="label">Proposed for agreement tomorrow</span><h3>Experiment shape</h3><ul class="clean"><li>Define the ecosystem universe, then shortlist approximately 3–4 viable candidates.</li><li>Include the Microsoft ecosystem in the shortlist.</li><li>Apply each candidate to one bounded scenario; a simple task-management application is the current example.</li><li>Progress from first iteration through MVP.</li><li>Consider a non-AI baseline only as a proposed perspective-building experiment.</li></ul></article>
-    <article class="card span-12"><span class="label">Scope guardrails</span><div class="people"><div class="person"><strong>Depth over breadth</strong><span>Do not compare every ecosystem.</span></div><div class="person"><strong>Bounded scenario</strong><span>Keep the experiment comparable and finishable.</span></div><div class="person"><strong>Consent first</strong><span>No public publication of student work or identity without opt-in.</span></div><div class="person"><strong>Protect data</strong><span>No secrets or private data in prompts or repositories.</span></div><div class="person"><strong>Support claims</strong><span>No conclusions without traceable evidence.</span></div><div class="person"><strong>Course authority</strong><span>Milestones and grading requirements remain authoritative.</span></div></div></article>
+    <article class="card confirmed span-7"><span class="label">Questions</span><div class="research-list" id="research-list"></div></article>
+    <article class="card proposed span-5"><span class="label">Guardrails</span><ul class="clean"><li>Shortlist 3–4 ecosystems, including Microsoft.</li><li>Use one comparable, finishable scenario.</li><li>Protect secrets, private data, and student identity.</li><li>Keep claims traceable to evidence.</li></ul></article>
   </div>
 </div></section>
 <section id="deliverables"><div class="wrap">
-  <div class="section-head"><div class="kicker">04 · Show the work</div><div><h2>Deliverables &amp; acceptance evidence</h2><p>Each output should make its acceptance evidence easy to inspect, reproduce, and discuss.</p></div></div>
+  <div class="section-head"><div class="kicker">04 · Evidence</div><div><h2>Deliverables</h2><p>Make every result inspectable and reproducible.</p></div></div>
   <div class="grid" id="deliverable-list"></div>
 </div></section>
 <section id="ready"><div class="wrap">
-  <div class="section-head"><div class="kicker">05 · Before work starts</div><div><h2>Definition of Ready</h2><p>A backlog item or experiment is ready when the team can execute it without guessing at the objective, evidence, limits, or ownership.</p></div></div>
-  <article class="card proposed"><span class="label">Proposed for agreement tomorrow</span><div class="mini-progress"><div class="mini-track"><div class="mini-fill" id="dor-fill"></div></div><span class="mini-text" id="dor-text">0 / 10 checked</span></div><div class="checklist" id="dor-list"></div></article>
+  <div class="section-head"><div class="kicker">05 · Start</div><div><h2>Definition of Ready</h2><p>Enough clarity to begin without guessing.</p></div></div>
+  <article class="card proposed"><span class="label">Discuss</span><div class="mini-progress"><div class="mini-track"><div class="mini-fill" id="dor-fill"></div></div><span class="mini-text" id="dor-text">0 checked</span></div><div class="checklist" id="dor-list"></div></article>
 </div></section>
 <section id="done"><div class="wrap">
-  <div class="section-head"><div class="kicker">06 · Before work closes</div><div><h2>Definition of Done</h2><p>Done means demonstrably complete—not merely coded, described, or moved to another column.</p></div></div>
-  <article class="card proposed"><span class="label">Proposed for agreement tomorrow</span><div class="mini-progress"><div class="mini-track"><div class="mini-fill" id="dod-fill"></div></div><span class="mini-text" id="dod-text">0 / 10 checked</span></div><div class="checklist" id="dod-list"></div></article>
+  <div class="section-head"><div class="kicker">06 · Finish</div><div><h2>Definition of Done</h2><p>Complete, tested, evidenced, and reviewable.</p></div></div>
+  <article class="card proposed"><span class="label">Discuss</span><div class="mini-progress"><div class="mini-track"><div class="mini-fill" id="dod-fill"></div></div><span class="mini-text" id="dod-text">0 checked</span></div><div class="checklist" id="dod-list"></div></article>
 </div></section>
 <section id="agreements"><div class="wrap">
-  <div class="section-head"><div class="kicker">07 · Ways of working</div><div><h2>Sponsor expectations</h2><p>Practical norms intended to make feedback faster, demos stronger, and research claims more credible.</p></div></div>
+  <div class="section-head"><div class="kicker">07 · Work</div><div><h2>Working agreements</h2><p>Keep feedback fast and evidence credible.</p></div></div>
   <div class="grid">
-    <article class="card proposed span-8"><span class="label">Proposed for agreement tomorrow</span><ul class="clean expectations" id="expectation-list"></ul></article>
-    <article class="card confirmed span-4"><span class="label">Confirmed boundary</span><h3>Academic and faculty requirements prevail</h3><p>AI tools are allowed and desired, but outputs must be validated, usage disclosed, and academic integrity preserved. Student token costs must be considered; no assumption should be made that students personally absorb non-trivial costs.</p></article>
+    <article class="card proposed span-8"><span class="label">Discuss</span><ul class="clean expectations" id="expectation-list"></ul></article>
+    <article class="card confirmed span-4"><span class="label">Boundary</span><h3>Course requirements prevail</h3><p>Validate and disclose AI use, preserve academic integrity, and avoid shifting material tool costs to students.</p></article>
   </div>
 </div></section>
 <section id="cadence"><div class="wrap">
-  <div class="section-head"><div class="kicker">08 · Establish rhythm</div><div><h2>Suggested cadence</h2><p>A lightweight proposal that prioritizes demonstrations, concise preparation, fast escalation, and continuously captured decisions.</p></div></div>
+  <div class="section-head"><div class="kicker">08 · Rhythm</div><div><h2>Suggested cadence</h2><p>Demo often, prepare briefly, and escalate early.</p></div></div>
   <div class="grid">
-    <article class="card proposed span-7"><span class="label">Proposed for agreement tomorrow</span><div class="timeline" id="cadence-list"></div></article>
-    <article class="card span-5"><span class="label">Meeting hygiene</span><details open><summary>Before the sponsor sync</summary><div>Student-led agenda and concise pre-read shared 24 hours before, including the demo target, requested decisions, risks, and links to evidence.</div></details><details><summary>During the sponsor sync</summary><div>Lead with the working demo or evidence. Use status only to frame a decision, risk, or request for help.</div></details><details><summary>After the sponsor sync</summary><div>Update the decision log, owners, dates, blockers, and next demonstrable outcome while context is fresh.</div></details></article>
+    <article class="card proposed span-7"><span class="label">Discuss</span><div class="timeline" id="cadence-list"></div></article>
+    <article class="card span-5"><span class="label">Sponsor sync</span><details><summary>Before</summary><div>Share the demo target, decisions, risks, and evidence.</div></details><details><summary>During</summary><div>Lead with the demo; focus status on decisions and blockers.</div></details><details><summary>After</summary><div>Record decisions, owners, dates, and the next outcome.</div></details></article>
   </div>
 </div></section>
 <section id="updates"><div class="wrap">
-  <div class="updates-header"><div><div class="kicker">Team progress</div><h1>Iteration updates</h1><p>Review updates shared by your team, expand one for details, or prepare the next iteration report. Submitted updates are stored as GitHub issues so everyone using this microsite sees the same information.</p></div><div class="updates-actions no-print"><button class="btn primary" id="add-update" type="button" aria-expanded="false" aria-controls="new-update-panel">Add new update</button><button class="btn" id="refresh-updates" type="button">Refresh updates</button><a class="btn" href="#start">Return to microsite</a></div></div>
-  <div class="updates-gallery" id="updates-gallery" aria-live="polite"><div class="updates-empty">Loading submitted updates…</div></div>
-  <article class="card new-update-panel" id="new-update-panel" hidden>
-    <span class="label">New iteration update</span><h2>Prepare an update</h2><p class="muted">Your draft saves in this browser until you review and submit it through GitHub.</p>
-    <form class="update-form" id="iteration-form">
-      <div class="form-field"><label for="iteration-name">Iteration name</label><input id="iteration-name" name="iterationName" type="text" autocomplete="off" required></div>
-      <div class="form-field"><label for="iteration-start">Start date</label><input id="iteration-start" name="startDate" type="date" required></div>
-      <div class="form-field full"><label for="iteration-duration">Duration</label><input id="iteration-duration" name="duration" type="text" placeholder="For example, 2 weeks" required></div>
-      <div class="item-editor form-field full" data-item-editor="completed"><div class="item-editor-head"><span class="item-editor-title">Completed</span><button class="btn" type="button" data-add-item="completed">Add completed item</button></div><div class="item-list" data-item-list="completed"></div></div>
-      <div class="item-editor form-field full" data-item-editor="planned"><div class="item-editor-head"><span class="item-editor-title">Planned</span><button class="btn" type="button" data-add-item="planned">Add planned item</button></div><div class="item-list" data-item-list="planned"></div></div>
-      <div class="item-editor form-field full" data-item-editor="blocked"><div class="item-editor-head"><span class="item-editor-title">Blocked</span><button class="btn" type="button" data-add-item="blocked">Add blocked item</button></div><div class="item-list" data-item-list="blocked"></div><span class="field-hint">Add “None” when there are no blocked items.</span></div>
-      <fieldset class="escalation form-field full"><legend>Escalated to the Executive Action Team?</legend><div class="radio-row"><label><input name="escalated" type="radio" value="Yes" required> Yes</label><label><input name="escalated" type="radio" value="No" required> No</label></div></fieldset>
-      <div class="submit-row"><p class="field-hint iteration-note">Continue to GitHub, review the update, then select “Submit new issue” to save it for the whole team. A GitHub account is required.</p><button class="btn primary" type="submit">Continue to GitHub to save</button></div>
-    </form>
-  </article>
+  <div class="updates-header"><div><div class="kicker">Team progress</div><h1>Iteration submission guide</h1><p>Create one branch and report per iteration, then open a pull request.</p></div><div class="updates-actions no-print"><a class="btn primary" href="https://github.com/chadhage/usf-cis4910-2026-team-3" target="_blank" rel="noopener">Open repository</a><a class="btn" href="#start">Return to microsite</a></div></div>
+  <div class="grid">
+    <article class="card span-5">
+      <span class="label">Required workflow</span><h2>One branch per iteration</h2>
+      <ol class="clean"><li>Start from the latest <code>main</code> branch.</li><li>Create a branch named <code>iteration/NN</code>, replacing <code>NN</code> with the two-digit iteration number.</li><li>Create <code>iterations/NN/README.md</code> from the required template.</li><li>Commit and push the branch to GitHub.</li><li>Open a pull request into <code>main</code> and request the required review.</li></ol>
+      <details open><summary>Command-line example</summary><div><pre><code>git switch main
+git pull --ff-only
+git switch -c iteration/01
+git add iterations/01/README.md
+git commit -m "Add iteration 01 update"
+git push -u origin iteration/01</code></pre></div></details>
+    </article>
+    <article class="card span-7">
+      <span class="label">Required README.md template</span><h2>Use these headings exactly</h2>
+      <p>Replace each placeholder, use concise bullets, and link to evidence. Write <code>- None.</code> when there are no impediments.</p>
+      <pre><code># Iteration NN Update
+
+**Iteration dates:** YYYY-MM-DD to YYYY-MM-DD
+
+## Completed
+
+- &lt;Completed outcome and supporting evidence&gt;
+
+## Planned for the Coming Iteration
+
+- &lt;Planned outcome&gt;
+
+## Impediments
+
+- &lt;Impediment, impact, owner, and requested help&gt;</code></pre>
+    </article>
+    <article class="card span-12">
+      <span class="label">Before opening the pull request</span><h2>Submission checklist</h2>
+      <ul class="clean expectations"><li>The branch follows <code>iteration/NN</code>.</li><li>The report is located at <code>iterations/NN/README.md</code>.</li><li>All three required sections are present.</li><li>Completed work points to inspectable evidence.</li><li>Impediments identify impact, ownership, and any help needed.</li><li>The pull request targets <code>main</code>.</li></ul>
+    </article>
+  </div>
 </div></section>
 <section id="decisions" data-filter-group="decision"><div class="wrap">
-  <div class="section-head"><div class="kicker">10 · Make choices visible</div><div><h2>Decision log</h2><p>Proposed decisions for kickoff. Select an option and capture context; choices remain proposals until the team agrees.</p></div></div>
+  <div class="section-head"><div class="kicker">10 · Decide</div><div><h2>Decision log</h2><p>Select an option and capture only essential context.</p></div></div>
   <div class="toolbar no-print" aria-label="Content filters"><button type="button" class="btn filter" data-filter="all" aria-pressed="true">Show all</button><button type="button" class="btn filter" data-filter="decision" aria-pressed="false">Decisions</button><button type="button" class="btn filter" data-filter="risk" aria-pressed="false">Blockers</button></div>
   <div class="decision-grid" id="decision-list"></div>
 </div></section>
 <section id="blockers" data-filter-group="risk"><div class="wrap">
-  <div class="section-head"><div class="kicker">11 · Surface constraints</div><div><h2>Risk &amp; blocker board</h2><p>Starting states are intentionally unresolved. Discuss what is known, name an owner, and avoid fabricating closure.</p></div></div>
+  <div class="section-head"><div class="kicker">11 · Unblock</div><div><h2>Risks &amp; blockers</h2><p>Name the impact, owner, and next action.</p></div></div>
   <div class="toolbar no-print" aria-label="Content filters"><button type="button" class="btn filter" data-filter="all" aria-pressed="true">Show all</button><button type="button" class="btn filter" data-filter="decision" aria-pressed="false">Decisions</button><button type="button" class="btn filter" data-filter="risk" aria-pressed="false">Blockers</button></div>
   <div class="risk-grid" id="risk-list"></div>
   <article class="card" style="margin-block-start:16px"><label for="blocker-notes"><strong>Shared blocker notes</strong></label><textarea class="notes persist-note" id="blocker-notes" data-key="blocker-notes" placeholder="Capture owner, impact, next action, and target date. Avoid private data or secrets."></textarea></article>
 </div></section>
 <section id="close"><div class="wrap">
-  <div class="section-head"><div class="kicker">12 · Close with clarity</div><div><h2>Decisions, owners, next steps</h2><p>Use the final two minutes to read back what changed, what remains open, and what the team will demonstrate next.</p></div></div>
+  <div class="section-head"><div class="kicker">12 · Close</div><div><h2>Owners &amp; next steps</h2><p>Confirm what changed and what happens next.</p></div></div>
   <div class="close-grid">
-    <article class="callout"><h3>Close-out readback</h3><ol><li>What did we decide?</li><li>Who owns each next action?</li><li>What is the due date or checkpoint?</li><li>What will be demonstrated next?</li><li>Which blocker needs escalation?</li></ol></article>
-    <article class="card"><span class="label">Meeting controls</span><h3>Preserve or clear this meeting state</h3><p>Checklist selections, decisions, and notes are stored in this browser only. Printing can create a meeting handout or PDF through the browser print dialog.</p><div class="button-row no-print" style="justify-content:flex-start"><button type="button" class="btn primary" id="print-page">Print / export</button><button type="button" class="btn danger" id="reset-state">Reset meeting state</button></div><p class="muted" id="save-status" aria-live="polite">Changes save locally as you work.</p></article>
+    <article class="callout"><h3>Close-out</h3><ol><li>Confirm decisions and owners.</li><li>Set dates and the next demo.</li><li>Escalate unresolved blockers.</li></ol></article>
+    <article class="card"><span class="label">Local state</span><h3>Save or clear</h3><p>Selections and notes stay in this browser.</p><div class="button-row no-print" style="justify-content:flex-start"><button type="button" class="btn primary" id="print-page">Print / export</button><button type="button" class="btn danger" id="reset-state">Reset</button></div><p class="muted" id="save-status" aria-live="polite">Changes save automatically.</p></article>
   </div>
 </div></section>
 </main>
-<footer class="footer"><div class="wrap footer-inner"><strong>Prepared for kickoff discussion — proposals become commitments only after team agreement.</strong><span>Privacy: student identity and public publication are opt-in; avoid unnecessary personal data.</span></div></footer>
+<footer class="footer"><div class="wrap footer-inner"><strong>Team 3 kickoff</strong><span>Protect student privacy and avoid unnecessary personal data.</span></div></footer>
 <div class="live" id="live-message" role="status" aria-live="polite"></div>
 <script type="application/json" id="kickoff-data">
 {
@@ -164,42 +191,37 @@
   "confirmedFacts":["Students will build a working artifact.","The way decisions are made and the artifact is built is part of the research value.","The Microsoft ecosystem belongs in the shortlist.","Course milestones and grading requirements remain authoritative."],
   "proposals":["Shortlist approximately 3–4 viable ecosystems.","Use a bounded task-management scenario as the current example.","Consider a non-AI baseline as an optional experiment.","Adopt the suggested cadence after team agreement."],
   "agenda":[
-    {"range":"0–3","title":"Welcome & roles","detail":"Purpose, participants, sponsor/faculty boundaries","minutes":3},
-    {"range":"3–8","title":"North star & scope","detail":"Pipeline objective, scenario, candidate universe","minutes":5},
-    {"range":"8–14","title":"Expectations & deliverables","detail":"Evidence, outputs, acceptance signals","minutes":6},
-    {"range":"14–20","title":"Ready & Done","detail":"Entry and exit criteria for credible increments","minutes":6},
-    {"range":"20–25","title":"Cadence & ways of working","detail":"Sync, pre-read, demos, communication, escalation","minutes":5},
-    {"range":"25–28","title":"Blockers & risks","detail":"Access, budget, privacy, schedule, alignment","minutes":3},
-    {"range":"28–30","title":"Decisions & next steps","detail":"Owners, dates, next checkpoint and demo","minutes":2}
+    {"title":"Welcome & roles","detail":"Purpose, participants, sponsor/faculty boundaries"},
+    {"title":"North star & scope","detail":"Pipeline objective, scenario, candidate universe"},
+    {"title":"Expectations & deliverables","detail":"Evidence, outputs, acceptance signals"},
+    {"title":"Ready & Done","detail":"Entry and exit criteria for credible increments"},
+    {"title":"Cadence & ways of working","detail":"Sync, pre-read, demos, communication, escalation"},
+    {"title":"Blockers & risks","detail":"Access, budget, privacy, schedule, alignment"},
+    {"title":"Decisions & next steps","detail":"Owners, dates, next checkpoint and demo"}
   ],
   "researchQuestions":[
-    "How does each ecosystem harvest personas, backlog, and roadmap from requirements?",
-    "How does each support iterative development and feedback or defect capture?",
-    "How does each enable secure-by-design handling of developer credentials, secrets, and application data?",
-    "How does each support TDD across unit, feature, end-to-end, and chaos testing?",
-    "How does each support SRE practices: CI/CD, telemetry, monitoring, self-healing, and recovery?",
-    "What does each approach cost in cloud resources, tokens per iteration and MVP, subscriptions, and add-ons?"
+    "How well does each ecosystem turn requirements into working software?",
+    "How does each support iteration, testing, and feedback?",
+    "How does each protect credentials, secrets, and application data?",
+    "What evidence, operational support, and cost accompany each approach?"
   ],
   "deliverables":[
-    {"title":"Working pipeline / MVP","evidence":"Repository commit or release; reproducible setup; requirements-to-artifact trace; passing automated tests; secure configuration; runtime demonstration; known limitations."},
-    {"title":"Research paper","evidence":"Clear method and research questions; cited evidence; experiment design; findings tied to data; limitations, threats to validity, and defensible conclusions aligned to course requirements."},
-    {"title":"Comparison matrix","evidence":"Truth table with explicit criteria, scoring definitions, source or test evidence, comparable conditions, costs, and a rationale for every material judgment."},
-    {"title":"Microsite","evidence":"Accessible, privacy-aware synthesis of scope, method, progress, evidence, decisions, demos, and findings; publication only with appropriate consent."},
-    {"title":"Demo series","evidence":"Repeatable demonstrations from first iteration through MVP; scenario and inputs stated; expected versus observed results; failures retained as learning evidence; cost recorded."}
+    {"title":"Working pipeline / MVP","evidence":"Reproducible setup, requirements trace, passing tests, secure configuration, live demo, and known limitations."},
+    {"title":"Research paper","evidence":"Clear method, cited evidence, data-backed findings, limitations, and defensible conclusions."},
+    {"title":"Comparison matrix","evidence":"Explicit criteria, comparable conditions, supporting evidence, costs, and rationale."},
+    {"title":"Demos & microsite","evidence":"Repeatable demonstrations and a privacy-aware summary of progress, decisions, evidence, and findings."}
   ],
-  "dor":["Problem and user are stated","Expected outcome is explicit","Acceptance criteria are testable","Inputs and test data are identified","Dependencies are known","Security and privacy considerations are captured","Evaluation method and metrics are defined","Cost budget or limit is stated","Owner is named","Small enough to finish in one iteration"],
-  "dod":["Working artifact is in the repository","Acceptance tests pass","Evidence is captured","Security and privacy review is completed","Telemetry and error handling are present where relevant","Cost is recorded","Documentation and decision log are updated","Artifact is demo-ready","Work is peer reviewed","Limitations and next steps are explicit"],
-  "expectations":["Evidence over opinion","Maintain decision records","Make demos reproducible","Show incremental progress","Build security and privacy in from the beginning","Track cost transparently","Disclose AI and tool usage and validate outputs","Ask early when blocked","Use concise pre-reads","Prefer demos over status-only reporting","Academic integrity and faculty/course requirements prevail"],
-  "cadence":["Weekly 30-minute sponsor sync","Student-led agenda and demo","Pre-read 24 hours before","Async questions in an agreed channel","Red blockers escalated within one business day","Decision log maintained continuously","Monthly milestone review or review at course milestones"],
+  "dor":["Problem and user are clear","Outcome and acceptance criteria are testable","Inputs, dependencies, and limits are known","Security, privacy, and cost are considered","Evaluation method is defined","Owner and iteration scope are set"],
+  "dod":["Working artifact is committed","Acceptance tests pass","Evidence and cost are captured","Security and privacy are reviewed","Documentation and decisions are updated","Work is reviewed and demo-ready"],
+  "expectations":["Use evidence over opinion","Keep decisions and demos reproducible","Show incremental progress","Build in security, privacy, and cost awareness","Disclose and validate AI-assisted work","Escalate blockers early"],
+  "cadence":["Weekly sponsor sync","Student-led agenda and demo","Brief pre-read shared in advance","Blockers escalated within one business day","Decisions recorded continuously"],
   "risks":[
     {"title":"Access / licensing","status":"Discuss","prompt":"Which ecosystems and features can the team access under current licenses?"},
     {"title":"Token budget","status":"Unconfirmed","prompt":"What usage limits, sponsorship, or lower-cost experiment controls apply?"},
-    {"title":"Repository / workspace","status":"Discuss","prompt":"Where will code, evidence, decisions, and demos live?"},
     {"title":"Candidate selection","status":"Discuss","prompt":"What criteria and deadline govern the 3–4 ecosystem shortlist?"},
     {"title":"Test data","status":"Unconfirmed","prompt":"What synthetic or approved data will make comparisons fair and safe?"},
     {"title":"Security / privacy","status":"Discuss","prompt":"How will secrets, application data, student identity, and publication consent be handled?"},
-    {"title":"Time / scope","status":"Discuss","prompt":"What is the smallest scenario and MVP that preserves research value?"},
-    {"title":"Faculty milestone alignment","status":"Unconfirmed","prompt":"How do sponsor checkpoints map to course deliverables and grading dates?"}
+    {"title":"Time / scope","status":"Discuss","prompt":"What is the smallest scenario and MVP that preserves research value?"}
   ],
   "decisions":[
     {"title":"Communication channel","options":["Decide during kickoff","Microsoft Teams channel","Course-approved alternative"]},
@@ -207,9 +229,6 @@
     {"title":"Repository / location","options":["Decide during kickoff","Microsoft-hosted repository","University-approved repository","Other course-approved location"]},
     {"title":"Shortlist selection date","options":["Decide during kickoff","Within one week","At first course milestone"]},
     {"title":"Bounded scenario","options":["Decide during kickoff","Simple task-management application","Alternative bounded business scenario"]},
-    {"title":"Baseline experiment","options":["Decide during kickoff","Include non-AI baseline","Exclude baseline","Defer pending scope review"]},
-    {"title":"Publication / privacy choice","options":["Decide during kickoff","Private course/sponsor access","Public only with individual opt-in","No public student identity"]},
-    {"title":"Roles / ownership","options":["Decide during kickoff","Assign by deliverable","Assign by ecosystem","Hybrid ownership"]},
     {"title":"Next checkpoint","options":["Decide during kickoff","Candidate criteria + shortlist","Scenario specification + acceptance tests","First pipeline spike / demo"]}
   ]
 }
@@ -220,15 +239,14 @@
 const data=JSON.parse(document.getElementById('kickoff-data').textContent);
 const $=(s,r=document)=>r.querySelector(s), $$=(s,r=document)=>[...r.querySelectorAll(s)];
 const storeKey='usf-cis4910-team3-kickoff-v1';
-let state={checks:{},notes:{},decisions:{},iterationDraft:{}};
-try{state={...state,...JSON.parse(localStorage.getItem(storeKey)||'{}')}}catch(e){state={checks:{},notes:{},decisions:{},iterationDraft:{}}}
+let state={checks:{},notes:{},decisions:{}};
+try{state={...state,...JSON.parse(localStorage.getItem(storeKey)||'{}')}}catch(e){state={checks:{},notes:{},decisions:{}}}
 const save=()=>{localStorage.setItem(storeKey,JSON.stringify(state));$('#save-status').textContent='Saved locally at '+new Date().toLocaleTimeString([],{hour:'numeric',minute:'2-digit'});};
 const announce=msg=>{const el=$('#live-message');el.textContent=msg;el.classList.add('show');setTimeout(()=>el.classList.remove('show'),2200)};
 $('#participant-list').innerHTML=data.participants.map(p=>`<div class="person"><strong>${p.name}</strong><span>${p.role}</span></div>`).join('');
-$('#agenda-list').innerHTML=data.agenda.map(a=>`<div class="agenda-item"><div class="agenda-time">${a.range} min</div><div><strong>${a.title}</strong><p>${a.detail}</p></div><div class="agenda-min">${a.minutes} min</div></div>`).join('');
-const total=data.agenda.reduce((n,a)=>n+a.minutes,0);$('#agenda-total').textContent=total+' minutes';
+$('#agenda-list').innerHTML=data.agenda.map(a=>`<div class="agenda-item" style="grid-template-columns:1fr"><div><strong>${a.title}</strong><p>${a.detail}</p></div></div>`).join('');
 $('#research-list').innerHTML=data.researchQuestions.map(q=>`<div class="research-q">${q}</div>`).join('');
-$('#deliverable-list').innerHTML=data.deliverables.map((d,i)=>`<article class="card deliverable-card ${i<2?'span-6':'span-4'}"><span class="label">Acceptance card</span><h3>${d.title}</h3><div class="evidence"><strong>Exact acceptance evidence</strong><p>${d.evidence}</p></div></article>`).join('');
+$('#deliverable-list').innerHTML=data.deliverables.map(d=>`<article class="card deliverable-card span-6"><span class="label">Evidence</span><h3>${d.title}</h3><div class="evidence"><p>${d.evidence}</p></div></article>`).join('');
 $('#expectation-list').innerHTML=data.expectations.map(x=>`<li>${x}</li>`).join('');
 $('#cadence-list').innerHTML=data.cadence.map((x,i)=>`<div class="timeline-item"><strong>${i+1}. ${x}</strong><p>Confirm owner, channel, or timing during kickoff.</p></div>`).join('');
 function renderChecklist(kind,items){const list=$('#'+kind+'-list');list.innerHTML=items.map((x,i)=>{const key=kind+'-'+i,checked=!!state.checks[key];return `<label class="check"><input type="checkbox" data-check="${key}" ${checked?'checked':''}><span>${x}</span></label>`}).join('');updateCheckProgress(kind,items.length)}
@@ -237,41 +255,13 @@ renderChecklist('dor',data.dor);renderChecklist('dod',data.dod);
 $('#decision-list').innerHTML=data.decisions.map((d,i)=>{const saved=state.decisions[i]||{};return `<article class="card decision"><span class="label">Proposed decision ${i+1}</span><h3>${d.title}</h3><label for="decision-${i}">Selected option</label><select id="decision-${i}" data-decision-select="${i}" aria-label="${d.title} selected option">${d.options.map(o=>`<option ${saved.option===o?'selected':''}>${o}</option>`).join('')}</select><label for="decision-note-${i}">Editable notes / rationale</label><textarea id="decision-note-${i}" data-decision-note="${i}" placeholder="Capture rationale, owner, and date.">${saved.note||''}</textarea></article>`}).join('');
 $('#risk-list').innerHTML=data.risks.map(r=>`<article class="risk"><span class="status ${r.status.toLowerCase()}">${r.status}</span><h3>${r.title}</h3><p>${r.prompt}</p></article>`).join('');
 $$('.persist-note').forEach(el=>{el.value=state.notes[el.dataset.key]||''});
-const iterationForm=$('#iteration-form');
-const itemTypes=['completed','planned','blocked'];
-const itemLabels={completed:'completed',planned:'planned',blocked:'blocked'};
-function draftItems(type){const draft=state.iterationDraft||{};const legacy={completed:draft.completed,planned:draft.lookingAhead,blocked:draft.impediments}[type];const items=Array.isArray(draft[type])?draft[type]:(legacy?[legacy]:[]);return items.length?items:['']}
-function addItemRow(type,value=''){const list=$(`[data-item-list="${type}"]`);const row=document.createElement('div');row.className='item-row';row.innerHTML=`<input type="text" data-item-type="${type}" aria-label="${itemLabels[type]} item" required><button class="btn danger item-remove" type="button" data-remove-item aria-label="Remove ${itemLabels[type]} item">×</button>`;row.querySelector('input').value=value;list.append(row);return row.querySelector('input')}
-itemTypes.forEach(type=>draftItems(type).forEach(value=>addItemRow(type,value)));
-Object.entries(state.iterationDraft||{}).forEach(([name,value])=>{if(itemTypes.includes(name)||['completed','lookingAhead','impediments'].includes(name))return;const field=iterationForm.elements.namedItem(name);if(!field)return;if(field instanceof RadioNodeList){field.value=value}else{field.value=value}});
-function serializeIterationDraft(){const values=Object.fromEntries(new FormData(iterationForm).entries());itemTypes.forEach(type=>{values[type]=$$(`[data-item-type="${type}"]`,iterationForm).map(input=>input.value)});state.iterationDraft=values;save();return values}
-iterationForm.addEventListener('input',serializeIterationDraft);
-iterationForm.addEventListener('click',event=>{const addButton=event.target.closest('[data-add-item]');if(addButton){addItemRow(addButton.dataset.addItem).focus();serializeIterationDraft();return}const removeButton=event.target.closest('[data-remove-item]');if(removeButton){const list=removeButton.closest('.item-list');removeButton.closest('.item-row').remove();serializeIterationDraft();(list.querySelector('input')||list.closest('.item-editor').querySelector('[data-add-item]')).focus()}});
-iterationForm.addEventListener('submit',event=>{event.preventDefault();const update=serializeIterationDraft();const missingType=itemTypes.find(type=>!update[type].some(item=>item.trim()));if(missingType){announce(`Add at least one ${itemLabels[missingType]} item`);const input=$(`[data-item-type="${missingType}"]`)||addItemRow(missingType);input.focus();return}const markdownItems=items=>items.filter(item=>item.trim()).map(item=>`- ${item.trim()}`).join('\n');const body=[`## Iteration update: ${update.iterationName}`,'',`**Start date:** ${update.startDate}`,`**Duration:** ${update.duration}`,'','## Completed','',markdownItems(update.completed),'','## Planned','',markdownItems(update.planned),'','## Blocked','',markdownItems(update.blocked),'',`**Escalated to the Executive Action Team:** ${update.escalated}`].join('\n');const params=new URLSearchParams({title:`Iteration update: ${update.iterationName}`,body});window.open(`https://github.com/chadhage/usf-cis4910-2026-team-3/issues/new?${params}`,'_blank','noopener');announce('Finish submitting in GitHub to share this update')});
-const updatesGallery=$('#updates-gallery'),newUpdatePanel=$('#new-update-panel'),addUpdateButton=$('#add-update');
-const escapeHtml=value=>String(value??'').replace(/[&<>'"]/g,char=>({'&':'&amp;','<':'&lt;','>':'&gt;',"'":'&#39;','"':'&quot;'}[char]));
-const issueField=(body,pattern)=>body.match(pattern)?.[1]?.trim()||'Not provided';
-const issueItems=(body,pattern)=>issueField(body,pattern).split('\n').map(item=>item.replace(/^[-*]\s+/,'').trim()).filter(Boolean).join('\n');
-function parseIterationIssue(issue){const body=issue.body||'';return{name:issue.title.replace(/^Iteration update:\s*/i,'').trim(),startDate:issueField(body,/\*\*Start date:\*\*\s*([^\n]+)/i),duration:issueField(body,/\*\*Duration:\*\*\s*([^\n]+)/i),completed:issueItems(body,/## Completed\s+([\s\S]*?)(?=\s+## (?:Planned|Looking ahead))/i),planned:issueItems(body,/## (?:Planned|Looking ahead)\s+([\s\S]*?)(?=\s+## (?:Blocked|Impediments))/i),blocked:issueItems(body,/## (?:Blocked|Impediments)\s+([\s\S]*?)(?=\s+\*\*Escalated to the Executive Action Team:)/i),escalated:issueField(body,/\*\*Escalated to the Executive Action Team:\*\*\s*([^\n]+)/i),number:issue.number,state:issue.state,createdAt:issue.created_at,url:issue.html_url,author:issue.user?.login||'Unknown'} }
-function renderUpdates(issues){if(!issues.length){updatesGallery.innerHTML='<div class="updates-empty"><strong>No iteration updates submitted yet.</strong><br>Select “Add new update” to prepare the team’s first report.</div>';return}updatesGallery.innerHTML=issues.map(issue=>{const update=parseIterationIssue(issue);const date=new Date(update.createdAt).toLocaleDateString([],{year:'numeric',month:'short',day:'numeric'});return `<details class="update-card"><summary><span class="update-card-title"><strong>${escapeHtml(update.name)}</strong><span class="status ${update.state==='open'?'discuss':'confirmed'}">${escapeHtml(update.state)}</span></span><span class="update-card-meta"><span>Started ${escapeHtml(update.startDate)}</span><span>${escapeHtml(update.duration)}</span><span>Submitted ${escapeHtml(date)} by ${escapeHtml(update.author)}</span></span></summary><div class="update-card-body"><div class="update-detail"><strong>Completed</strong>${escapeHtml(update.completed)}</div><div class="update-detail"><strong>Planned</strong>${escapeHtml(update.planned)}</div><div class="update-detail"><strong>Blocked</strong>${escapeHtml(update.blocked)}</div><div class="update-detail full"><strong>Executive Action Team escalation</strong>${escapeHtml(update.escalated)}</div><a class="btn update-link" href="${escapeHtml(update.url)}" target="_blank" rel="noopener">Open issue #${update.number}</a></div></details>`}).join('')}
-let updatesLoaded=false;
-async function loadUpdates(force=false){if(updatesLoaded&&!force)return;updatesGallery.innerHTML='<div class="updates-empty">Loading submitted updates…</div>';try{let url='https://api.github.com/repos/chadhage/usf-cis4910-2026-team-3/issues?state=all&per_page=100',issues=[];while(url){const response=await fetch(url,{headers:{Accept:'application/vnd.github+json'}});if(!response.ok)throw new Error(`GitHub returned ${response.status}`);issues.push(...await response.json());url=response.headers.get('link')?.match(/<([^>]+)>; rel="next"/)?.[1]||''}const iterationIssues=issues.filter(issue=>!issue.pull_request&&/^Iteration update:/i.test(issue.title)).sort((a,b)=>new Date(b.created_at)-new Date(a.created_at));renderUpdates(iterationIssues);updatesLoaded=true}catch(error){updatesGallery.innerHTML=`<div class="updates-error"><strong>Updates could not be loaded.</strong><br>${escapeHtml(error.message)}. Try refreshing this view.</div>`}}
-function toggleNewUpdate(show){newUpdatePanel.hidden=!show;addUpdateButton.setAttribute('aria-expanded',String(show));addUpdateButton.textContent=show?'Close new update':'Add new update';if(show){newUpdatePanel.scrollIntoView({behavior:'smooth',block:'start'});requestAnimationFrame(()=>$('#iteration-name').focus())}}
-addUpdateButton.addEventListener('click',()=>toggleNewUpdate(newUpdatePanel.hidden));
-$('#refresh-updates').addEventListener('click',()=>loadUpdates(true));
-addEventListener('focus',()=>{if(location.hash==='#updates')loadUpdates(true)});
-function applyView(){const updatesMode=location.hash==='#updates';document.body.classList.toggle('updates-mode',updatesMode);if(updatesMode){loadUpdates();scrollTo(0,0)}else{toggleNewUpdate(false)}}
+function applyView(){const updatesMode=location.hash==='#updates';document.body.classList.toggle('updates-mode',updatesMode);if(updatesMode)scrollTo(0,0)}
 addEventListener('hashchange',applyView);applyView();
-document.addEventListener('change',e=>{if(e.target.matches('[data-check]')){state.checks[e.target.dataset.check]=e.target.checked;save();updateCheckProgress(e.target.dataset.check.split('-')[0],10)}if(e.target.matches('[data-decision-select]')){const i=e.target.dataset.decisionSelect;state.decisions[i]={...(state.decisions[i]||{}),option:e.target.value};save()}});
+document.addEventListener('change',e=>{if(e.target.matches('[data-check]')){const kind=e.target.dataset.check.split('-')[0];state.checks[e.target.dataset.check]=e.target.checked;save();updateCheckProgress(kind,data[kind].length)}if(e.target.matches('[data-decision-select]')){const i=e.target.dataset.decisionSelect;state.decisions[i]={...(state.decisions[i]||{}),option:e.target.value};save()}});
 document.addEventListener('input',e=>{if(e.target.matches('[data-decision-note]')){const i=e.target.dataset.decisionNote;state.decisions[i]={...(state.decisions[i]||{}),note:e.target.value};save()}if(e.target.matches('.persist-note')){state.notes[e.target.dataset.key]=e.target.value;save()}});
 $$('.filter').forEach(btn=>btn.addEventListener('click',()=>{const f=btn.dataset.filter;$$('.filter').forEach(b=>b.setAttribute('aria-pressed',String(b.dataset.filter===f)));$$('[data-filter-group]').forEach(s=>s.classList.toggle('hidden',f!=='all'&&s.dataset.filterGroup!==f));if(f!=='all'){document.getElementById(f==='decision'?'decisions':'blockers').scrollIntoView({behavior:'smooth'})}announce(f==='all'?'Showing decisions and blockers':`Showing ${f==='decision'?'decisions':'blockers'} only`)}));
 $('#print-page').addEventListener('click',()=>window.print());
-$('#reset-state').addEventListener('click',()=>{if(window.confirm('Reset all saved checklists, decisions, notes, and the iteration draft for this kickoff?')){localStorage.removeItem(storeKey);state={checks:{},notes:{},decisions:{},iterationDraft:{}};location.reload()}});
-let seconds=1800,timerId=null;const timer=$('#timer'),timerStatus=$('#timer-status');
-function paintTimer(){const m=Math.floor(seconds/60),s=seconds%60;timer.textContent=`${String(m).padStart(2,'0')}:${String(s).padStart(2,'0')}`}
-$('#timer-start').addEventListener('click',()=>{if(timerId||seconds===0)return;timerStatus.textContent='Timer running';timerId=setInterval(()=>{seconds--;paintTimer();if(seconds<=0){clearInterval(timerId);timerId=null;timerStatus.textContent='Kickoff time complete';announce('30-minute kickoff time complete')}},1000)});
-$('#timer-pause').addEventListener('click',()=>{if(timerId){clearInterval(timerId);timerId=null;timerStatus.textContent='Paused';announce('Timer paused')}});
-$('#timer-reset').addEventListener('click',()=>{clearInterval(timerId);timerId=null;seconds=1800;paintTimer();timerStatus.textContent='Ready to start';announce('Timer reset to 30 minutes')});
+$('#reset-state').addEventListener('click',()=>{if(window.confirm('Reset all saved checklists, decisions, and notes for this kickoff?')){localStorage.removeItem(storeKey);state={checks:{},notes:{},decisions:{}};location.reload()}});
 const progress=$('#page-progress');function updatePageProgress(){const max=document.documentElement.scrollHeight-innerHeight;progress.style.inlineSize=(max>0?scrollY/max*100:0)+'%'}addEventListener('scroll',updatePageProgress,{passive:true});addEventListener('resize',updatePageProgress);updatePageProgress();
 const menuButton=$('#menu-button'),drawer=$('#section-nav'),drawerClose=$('#drawer-close'),backdrop=$('#nav-backdrop');
 const drawerFocusable=()=>$$('a[href],button:not([disabled]),[tabindex]:not([tabindex="-1"])',drawer);
