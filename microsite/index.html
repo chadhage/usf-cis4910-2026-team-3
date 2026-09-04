@@ -32,8 +32,10 @@ main section{padding-block:88px;border-block-end:1px solid #dce3df}main section:
 .agenda{gap:14px}.agenda-item,.person,.flow-step,.research-q,.check,.timeline-item,.risk,details{background:#f7f8f4;border-color:#d5ded9;border-radius:6px}.agenda-item{padding:20px 22px}.flow{gap:12px}.flow-step{padding:20px}.clean li+li{margin-block-start:10px}.checklist{gap:10px}.decision-grid,.risk-grid{gap:20px}
 .btn{background:#eef3ef;color:#174b39;border-color:#b9c9c0}.btn.primary{background:#006747;color:#fff;border-color:#006747}.btn.danger{background:#fff;color:#8d2430}.footer{background:#004b36;color:#fff;border-block-start:4px solid #cfc493}.footer span{color:#dbe8e1}
 #updates pre{background:#17372d;color:#f7f8f4;border-color:#315c4e}.updates-header{margin-block-end:44px}.updates-header h1{color:#004b36}.updates-actions{gap:12px}
+.decision-carousel{max-inline-size:760px}.decision-carousel .decision-grid{grid-template-columns:minmax(0,1fr)}.decision-carousel .decision{min-block-size:390px}.carousel-controls{display:grid;grid-template-columns:110px minmax(120px,1fr) 110px;align-items:center;gap:16px;margin-block-start:20px}.carousel-position{text-align:center;color:var(--muted);font-weight:700;font-variant-numeric:tabular-nums}.carousel-controls .btn{inline-size:100%}.carousel-controls .btn:disabled{cursor:not-allowed;opacity:.45}
 @media(max-width:900px){.section-head{grid-template-columns:1fr;gap:8px}main section{padding-block:68px}}
-@media(max-width:600px){.hero{padding-block:52px}.hero h1{font-size:2.35rem}.card,.hero-card{padding:22px}main section{padding-block:58px}.section-head{margin-block-end:30px}}
+@media(max-width:600px){.hero{padding-block:52px}.hero h1{font-size:2.35rem}.card,.hero-card{padding:22px}main section{padding-block:58px}.section-head{margin-block-end:30px}.decision-carousel .decision{min-block-size:430px}.carousel-controls{grid-template-columns:92px minmax(90px,1fr) 92px;gap:8px}}
+@media print{.decision-carousel{max-inline-size:none}.decision-carousel .decision[hidden]{display:grid!important}.carousel-controls{display:none!important}}
 </style>
 </head>
 <body>
@@ -157,14 +159,19 @@ git push -u origin iteration/01</code></pre></div></details>
     </article>
   </div>
 </div></section>
-<section id="decisions" data-filter-group="decision"><div class="wrap">
+<section id="decisions"><div class="wrap">
   <div class="section-head"><div class="kicker">10 · Decide</div><div><h2>Decision log</h2><p>Select an option and capture only essential context.</p></div></div>
-  <div class="toolbar no-print" aria-label="Content filters"><button type="button" class="btn filter" data-filter="all" aria-pressed="true">Show all</button><button type="button" class="btn filter" data-filter="decision" aria-pressed="false">Decisions</button><button type="button" class="btn filter" data-filter="risk" aria-pressed="false">Blockers</button></div>
-  <div class="decision-grid" id="decision-list"></div>
+  <div class="decision-carousel" aria-roledescription="carousel" aria-label="Project decisions">
+    <div class="decision-grid" id="decision-list" aria-live="polite"></div>
+    <div class="carousel-controls no-print">
+      <button type="button" class="btn" id="decision-prev" aria-label="Show previous decision">Previous</button>
+      <span class="carousel-position" id="decision-position" aria-live="polite"></span>
+      <button type="button" class="btn primary" id="decision-next" aria-label="Show next decision">Next</button>
+    </div>
+  </div>
 </div></section>
-<section id="blockers" data-filter-group="risk"><div class="wrap">
+<section id="blockers"><div class="wrap">
   <div class="section-head"><div class="kicker">11 · Unblock</div><div><h2>Risks &amp; blockers</h2><p>Name the impact, owner, and next action.</p></div></div>
-  <div class="toolbar no-print" aria-label="Content filters"><button type="button" class="btn filter" data-filter="all" aria-pressed="true">Show all</button><button type="button" class="btn filter" data-filter="decision" aria-pressed="false">Decisions</button><button type="button" class="btn filter" data-filter="risk" aria-pressed="false">Blockers</button></div>
   <div class="risk-grid" id="risk-list"></div>
   <article class="card" style="margin-block-start:16px"><label for="blocker-notes"><strong>Shared blocker notes</strong></label><textarea class="notes persist-note" id="blocker-notes" data-key="blocker-notes" placeholder="Capture owner, impact, next action, and target date. Avoid private data or secrets."></textarea></article>
 </div></section>
@@ -207,7 +214,7 @@ git push -u origin iteration/01</code></pre></div></details>
   ],
   "deliverables":[
     {"title":"Working pipeline / MVP","evidence":"Reproducible setup, requirements trace, passing tests, secure configuration, live demo, and known limitations."},
-    {"title":"Research paper","evidence":"Clear method, cited evidence, data-backed findings, limitations, and defensible conclusions."},
+    {"title":"White paper","evidence":"Clear method, cited evidence, data-backed findings, limitations, and defensible conclusions."},
     {"title":"Comparison matrix","evidence":"Explicit criteria, comparable conditions, supporting evidence, costs, and rationale."},
     {"title":"Demos & microsite","evidence":"Repeatable demonstrations and a privacy-aware summary of progress, decisions, evidence, and findings."}
   ],
@@ -252,14 +259,19 @@ $('#cadence-list').innerHTML=data.cadence.map((x,i)=>`<div class="timeline-item"
 function renderChecklist(kind,items){const list=$('#'+kind+'-list');list.innerHTML=items.map((x,i)=>{const key=kind+'-'+i,checked=!!state.checks[key];return `<label class="check"><input type="checkbox" data-check="${key}" ${checked?'checked':''}><span>${x}</span></label>`}).join('');updateCheckProgress(kind,items.length)}
 function updateCheckProgress(kind,totalItems){const done=$$(`[data-check^="${kind}-"]:checked`).length;$('#'+kind+'-fill').style.inlineSize=(done/totalItems*100)+'%';$('#'+kind+'-text').textContent=`${done} / ${totalItems} checked`}
 renderChecklist('dor',data.dor);renderChecklist('dod',data.dod);
-$('#decision-list').innerHTML=data.decisions.map((d,i)=>{const saved=state.decisions[i]||{};return `<article class="card decision"><span class="label">Proposed decision ${i+1}</span><h3>${d.title}</h3><label for="decision-${i}">Selected option</label><select id="decision-${i}" data-decision-select="${i}" aria-label="${d.title} selected option">${d.options.map(o=>`<option ${saved.option===o?'selected':''}>${o}</option>`).join('')}</select><label for="decision-note-${i}">Editable notes / rationale</label><textarea id="decision-note-${i}" data-decision-note="${i}" placeholder="Capture rationale, owner, and date.">${saved.note||''}</textarea></article>`}).join('');
+let currentDecision=0;
+$('#decision-list').innerHTML=data.decisions.map((d,i)=>{const saved=state.decisions[i]||{};return `<article class="card decision" role="group" aria-roledescription="slide" aria-label="Decision ${i+1} of ${data.decisions.length}" ${i===0?'':'hidden'}><span class="label">Proposed decision ${i+1}</span><h3>${d.title}</h3><label for="decision-${i}">Selected option</label><select id="decision-${i}" data-decision-select="${i}" aria-label="${d.title} selected option">${d.options.map(o=>`<option ${saved.option===o?'selected':''}>${o}</option>`).join('')}</select><label for="decision-note-${i}">Editable notes / rationale</label><textarea id="decision-note-${i}" data-decision-note="${i}" placeholder="Capture rationale, owner, and date."></textarea></article>`}).join('');
+$$('[data-decision-note]').forEach(note=>{note.value=state.decisions[note.dataset.decisionNote]?.note||''});
+function showDecision(index){currentDecision=Math.max(0,Math.min(index,data.decisions.length-1));$$('#decision-list .decision').forEach((decision,i)=>decision.hidden=i!==currentDecision);$('#decision-position').textContent=`Decision ${currentDecision+1} of ${data.decisions.length}`;$('#decision-prev').disabled=currentDecision===0;$('#decision-next').disabled=currentDecision===data.decisions.length-1}
+$('#decision-prev').addEventListener('click',()=>showDecision(currentDecision-1));
+$('#decision-next').addEventListener('click',()=>showDecision(currentDecision+1));
+showDecision(0);
 $('#risk-list').innerHTML=data.risks.map(r=>`<article class="risk"><span class="status ${r.status.toLowerCase()}">${r.status}</span><h3>${r.title}</h3><p>${r.prompt}</p></article>`).join('');
 $$('.persist-note').forEach(el=>{el.value=state.notes[el.dataset.key]||''});
 function applyView(){const updatesMode=location.hash==='#updates';document.body.classList.toggle('updates-mode',updatesMode);if(updatesMode)scrollTo(0,0)}
 addEventListener('hashchange',applyView);applyView();
 document.addEventListener('change',e=>{if(e.target.matches('[data-check]')){const kind=e.target.dataset.check.split('-')[0];state.checks[e.target.dataset.check]=e.target.checked;save();updateCheckProgress(kind,data[kind].length)}if(e.target.matches('[data-decision-select]')){const i=e.target.dataset.decisionSelect;state.decisions[i]={...(state.decisions[i]||{}),option:e.target.value};save()}});
 document.addEventListener('input',e=>{if(e.target.matches('[data-decision-note]')){const i=e.target.dataset.decisionNote;state.decisions[i]={...(state.decisions[i]||{}),note:e.target.value};save()}if(e.target.matches('.persist-note')){state.notes[e.target.dataset.key]=e.target.value;save()}});
-$$('.filter').forEach(btn=>btn.addEventListener('click',()=>{const f=btn.dataset.filter;$$('.filter').forEach(b=>b.setAttribute('aria-pressed',String(b.dataset.filter===f)));$$('[data-filter-group]').forEach(s=>s.classList.toggle('hidden',f!=='all'&&s.dataset.filterGroup!==f));if(f!=='all'){document.getElementById(f==='decision'?'decisions':'blockers').scrollIntoView({behavior:'smooth'})}announce(f==='all'?'Showing decisions and blockers':`Showing ${f==='decision'?'decisions':'blockers'} only`)}));
 $('#print-page').addEventListener('click',()=>window.print());
 $('#reset-state').addEventListener('click',()=>{if(window.confirm('Reset all saved checklists, decisions, and notes for this kickoff?')){localStorage.removeItem(storeKey);state={checks:{},notes:{},decisions:{}};location.reload()}});
 const progress=$('#page-progress');function updatePageProgress(){const max=document.documentElement.scrollHeight-innerHeight;progress.style.inlineSize=(max>0?scrollY/max*100:0)+'%'}addEventListener('scroll',updatePageProgress,{passive:true});addEventListener('resize',updatePageProgress);updatePageProgress();
